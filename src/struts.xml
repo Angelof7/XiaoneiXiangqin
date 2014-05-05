@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="login" class="com.xiangqin.action.UserAction"
+			method="login">
+			<result>/success.jsp</result>
+		</action>
+		<action name="saveUser" class="com.xiangqin.action.UserAction"
+			method="saveUser">
+			<result>/success.jsp</result>
+		</action>
+		<action name="showUser" class="com.xiangqin.action.UserAction"
+			method="showUser">
+			<result name="success">/showUser.jsp</result>
+		</action>
+	</package>
+</struts>
