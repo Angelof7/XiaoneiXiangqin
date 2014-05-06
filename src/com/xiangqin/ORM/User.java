@@ -4,7 +4,7 @@ public class User {
 	private String id;
 	private String username;
 	private String password;
-
+    private int firstlogin;
 	public String getId() {
 		return id;
 	}
@@ -27,5 +27,13 @@ public class User {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public int getFirstlogin() {
+		return firstlogin;
+	}
+
+	public void setFirstlogin(int firstlogin) {
+		this.firstlogin = firstlogin;
 	}
 }

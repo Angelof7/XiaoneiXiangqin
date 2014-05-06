@@ -12,6 +12,11 @@
 			<result name="success">/success.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-
+        <action name="register" class="com.xiangqin.action.RegisterAction"
+			method="register">
+			<result name="success">/registerSuccess.jsp</result>
+			<result name="exists">/login.jsp</result>
+			<result name="failure">/register.jsp</result>
+		</action>
 	</package>
 </struts>
