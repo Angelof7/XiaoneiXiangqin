@@ -9,15 +9,9 @@
 	<package name="default" namespace="/" extends="struts-default">
 		<action name="login" class="com.xiangqin.action.UserAction"
 			method="login">
-			<result>/success.jsp</result>
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
 		</action>
-		<action name="saveUser" class="com.xiangqin.action.UserAction"
-			method="saveUser">
-			<result>/success.jsp</result>
-		</action>
-		<action name="showUser" class="com.xiangqin.action.UserAction"
-			method="showUser">
-			<result name="success">/showUser.jsp</result>
-		</action>
+
 	</package>
 </struts>

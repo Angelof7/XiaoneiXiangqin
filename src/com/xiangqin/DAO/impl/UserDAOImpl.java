@@ -32,7 +32,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User showUser(String id) {
+	public User getUser(String id) {
 		// TODO Auto-generated method stub
 		org.hibernate.Session session = HibernateUtil.openSession();
 		// get方法取出对象

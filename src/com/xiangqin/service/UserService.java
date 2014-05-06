@@ -5,6 +5,6 @@ import com.xiangqin.ORM.User;
 public interface UserService {
 	public void saveUser(User user);
 
-	public User showUser(String id);
+	public User getUser(String id);
 
 }

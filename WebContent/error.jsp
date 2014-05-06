@@ -2,11 +2,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>My JSP 'showPerson.jsp' starting page</title>
+<title>Insert title to here</title>
 </head>
 <body>
-	${user.username }
-	<br /> ${user.password }
+	Sorry,登录失败！
 	<br />
 </body>
 </html>

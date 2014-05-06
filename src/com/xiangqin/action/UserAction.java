@@ -63,15 +63,20 @@ public class UserAction extends ActionSupport {
 	 */
 	public String showUser() throws Exception {
 		UserService userservice = new UserServiceImpl();
-		User user = userservice.showUser(id);
+		User user = userservice.getUser(id);
 		ServletActionContext.getRequest().setAttribute("user", user);
 		return SUCCESS;
 	}
-	
-	public String login() throws Exception{
+
+	public String login() throws Exception {
 		UserService userservice = new UserServiceImpl();
-		User user = userservice.showUser(id);
+		User user = userservice.getUser(id);
 		ServletActionContext.getRequest().setAttribute("user", user);
-		return SUCCESS;
+		if (user == null)
+			return ERROR;
+		if (user.getPassword().equals(this.password))
+			return SUCCESS;
+		else
+			return ERROR;
 	}
 }
