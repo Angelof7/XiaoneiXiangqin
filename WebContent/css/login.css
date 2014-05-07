@@ -77,6 +77,21 @@ body{
 	background-image:url(../img/lg_buttom.gif);
 	background-repeat:no-repeat;
 	}
+#register{
+	position:absolute;
+	top:194px;
+	left:190px;
+	width:138px;
+	height:40px;
+	line-height:38px;
+	text-align:center;
+	font-size:20px;
+	color:#FFF;
+	cursor: pointer;
+	background-image:url(../img/lg_buttom.gif);
+	background-repeat:no-repeat;
+	}
+	
 #msg{
 	position:absolute;
 	top:60px;

@@ -14,11 +14,11 @@
 		<div id="main">
 			<div id="bg">
 				<span id="title">南大遇见你</span> <span id="msg"></span> <span
-					id="userimg"></span> <input type="text" id="userName"
-					name="id" /> <span id="pwimg"></span> <input type="password"
-					id="password" name="password" /> <span
-					onclick="document.loginform.submit()" id="login" class="login">登
-					陆</span>
+					id="userimg"></span> <input type="text" id="userName" name="id" />
+				<span id="pwimg"></span> <input type="password" id="password"
+					name="password" /> <span onclick="document.loginform.submit()"
+					id="login" class="login">登 陆</span><a href="register.jsp"style="text-decoration: none;"> <span
+					id="register" class="login">注 册</span></a>
 			</div>
 		</div>
 	</form>
