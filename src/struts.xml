@@ -7,12 +7,15 @@
 	<constant name="struts.devMode" value="true" />
 
 	<package name="default" namespace="/" extends="struts-default">
-		<action name="login" class="com.xiangqin.action.UserAction"
+		<action name="login" class="com.xiangqin.action.LoginAction"
 			method="login">
 			<result name="success">/success.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-        <action name="register" class="com.xiangqin.action.RegisterAction"
+		<action name="checkcode" class="com.xiangqin.action.CheckcodeAction"
+			method="execute">
+		</action>
+		<action name="register" class="com.xiangqin.action.RegisterAction"
 			method="register">
 			<result name="success">/registerSuccess.jsp</result>
 			<result name="exists">/login.jsp</result>

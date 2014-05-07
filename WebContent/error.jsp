@@ -3,9 +3,10 @@
 <html>
 <head>
 <title>Insert title to here</title>
+
 </head>
 <body>
 	Sorry,登录失败！
-	<br />
+	<br /> ${msg }
 </body>
 </html>
