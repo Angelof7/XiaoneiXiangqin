@@ -22,12 +22,12 @@ public class EmailAuthentication {
     	setUserId(userId);
     }
     public boolean sendMail() throws MessagingException{
-    	String adminEmail = "623401157@qq.com";//我们的邮箱
+    	String adminEmail = "bobchenquan@sina.com";//我们的邮箱
     	String adminPassword = "chenquan901022";//我们的邮箱密码
         this.createPassword = org.apache.commons.lang.RandomStringUtils.random(6, true, true);//生成的用户密码
     	String url = "http://localhost:8081/Xiangqin/login.jsp";
     	Properties props = new Properties();  
-        props.setProperty("mail.smtp.host", "smtp.exmail.qq.com");  
+        props.setProperty("mail.smtp.host", "smtp.sina.com");  
         props.setProperty("mail.smtp.auth", "true");   
         Authenticator authenticator = new MyAuthenticator(adminEmail, adminPassword);   
         javax.mail.Session session = javax.mail.Session.getDefaultInstance(props,authenticator);  
@@ -65,7 +65,7 @@ public class EmailAuthentication {
 	}
 	
 	public static void main(String []args) throws MessagingException{
-		EmailAuthentication ea = new EmailAuthentication("623401157@qq.com","chenquan");
+		EmailAuthentication ea = new EmailAuthentication("mg1332001","chenquan");
 		ea.sendMail();
 	}
 }
