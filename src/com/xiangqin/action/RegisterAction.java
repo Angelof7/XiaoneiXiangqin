@@ -10,22 +10,28 @@ import com.xiangqin.util.EmailAuthentication;
 @SuppressWarnings("serial")
 public class RegisterAction extends ActionSupport {
     private String studentCard;
-    private String email="hhhhhh";
+    private String email;
      
     public String register() throws MessagingException{
-    	User user = new User();
+    	User user = null;
     	System.out.println(this.email+"===="+this.studentCard);
     	UserServiceImpl usi = new UserServiceImpl();
-    	if(studentCard!=null && email!=null){
-    		EmailAuthentication ea = new EmailAuthentication(this.email,this.studentCard);
+    	if(studentCard!=null){
+    		EmailAuthentication ea = new EmailAuthentication(this.studentCard,this.email);
+    		System.out.println("获取用户");
     		user = usi.getUser(studentCard);
+    		System.out.println("获取用户成功");
     		if(user!=null){
     		   return "exists";	
     		}else{
+    			System.out.println("到这里了");
     			if(ea.sendMail()){
     				User createUser = new User();
     				createUser.setId(this.studentCard);
     				createUser.setPassword(ea.getCreatePassword());
+    				createUser.setEmail(this.studentCard+"@smail.nju.edu.cn");
+                    createUser.setFirstlogin(1);
+                    createUser.setUsername("chenquan");
     				usi.saveUser(createUser);
     				return "success";
     			}else{
@@ -33,7 +39,7 @@ public class RegisterAction extends ActionSupport {
     			}
     		}
     	}
-		return "success";
+		return "erro";
     }
      
 	public String getStudentCard() {
@@ -45,8 +51,8 @@ public class RegisterAction extends ActionSupport {
 	public String getEmail() {
 		return getEmail();
 	}
-	public void setEmail(String eamil) {
-		this.email = eamil;
+	public void setEmail() {
+		this.email = this.studentCard+"@smail.nju.edu.cn";
 	}
      
 }

@@ -16,7 +16,13 @@ public class UserDAOImpl implements UserDAO {
 		// 开启事务
 		try {
 			// 插入
-			session.save(user);
+			System.out.println("用户邮箱:"+user.getEmail());
+			System.out.println("2:"+user.getFirstlogin());
+			System.out.println("3:"+user.getId());
+			System.out.println("4:"+user.getUsername());
+			System.out.println("5:"+user.getPassword());
+			session.save(user);	
+			System.out.println("insert success");
 			tx.commit();
 		} catch (Exception ex) {
 			if (null != tx) {
