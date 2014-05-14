@@ -15,11 +15,17 @@
 		<action name="checkcode" class="com.xiangqin.action.CheckcodeAction"
 			method="execute">
 		</action>
+		
 		<action name="register" class="com.xiangqin.action.RegisterAction"
 			method="register">
 			<result name="success">/registerSuccess.jsp</result>
 			<result name="exists">/login.jsp</result>
 			<result name="failure">/register.jsp</result>
+		</action>
+		
+		<action name="profile" class="com.xiangqin.action.ProfileAction" method="profile">
+			<result name="success">/registerSuccess.jsp</result>
+			<result name="failure">/error.jsp</result>
 		</action>
 	</package>
 </struts>

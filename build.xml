@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="javacTest" default="compile" basedir=".">
+	<path id="lib">         
+	  <fileset dir="${basedir}/WebContent/WEB-INF/lib">  
+	      <include name="*.jar"/>  
+	  </fileset>      
+	</path>
+    <target name="clean">
+       <delete dir="build"/>
+    </target>
+
+    <target name="compile" depends="clean">
+       <mkdir dir="build/classes"/>      
+      <javac srcdir="src" destdir="${basedir}/build/classes" encoding="utf-8" >
+           <classpath refid="lib"></classpath>
+      </javac>
+    </target>
+</project>
