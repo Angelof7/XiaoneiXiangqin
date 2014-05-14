@@ -16,18 +16,20 @@ public class EmailAuthentication {
     private String email;
     private String userId;
     private String createPassword;
-    public EmailAuthentication(String iEmail,String userId){
+    public EmailAuthentication(String userId,String iEmail){
     	setEmail(iEmail);
     	setUserId(userId);
     }
     public boolean sendMail() throws MessagingException{
-    	String adminEmail = "623401157@qq.com";//我们的邮箱
+    	String adminEmail = "chenspring2";//我们的邮箱
     	String adminPassword = "chenquan901022";//我们的邮箱密码
         this.createPassword = org.apache.commons.lang.RandomStringUtils.random(6, true, true);//生成的用户密码
     	String url = "http://localhost:8081/Xiangqin/login.jsp";
     	Properties props = new Properties();  
-        props.setProperty("mail.smtp.host", "smtp.exmail.qq.com");  
+        props.setProperty("mail.smtp.host", "smtp.gmail.com");  
         props.setProperty("mail.smtp.auth", "true");   
+        props.setProperty("mail.port", "587"); 
+        props.put("mail.smtp.starttls.enable", "true");
         Authenticator authenticator = new MyAuthenticator(adminEmail, adminPassword);   
         javax.mail.Session session = javax.mail.Session.getDefaultInstance(props,authenticator);  
         session.setDebug(true);   
@@ -36,7 +38,7 @@ public class EmailAuthentication {
         Address to = new InternetAddress(this.userId+"@smail.nju.edu.cn");    
         MimeMessage msg = new MimeMessage(session);  
         msg.setFrom(from);  
-        msg.setSubject("南大相亲网站注册验证");  
+        msg.setSubject("南大相亲网站注册验证,测试用");  
         msg.setSentDate(new Date());  
         msg.setContent("<h3>欢迎注册南大相亲网</h3><p>你的用户名为:"+this.userId+"</p><p>你的密码为:"+createPassword+"</p><a href='" + url + "'>点击" + url + "完成注册</a>", 
         		 "text/html;charset=utf-8");  
@@ -64,7 +66,7 @@ public class EmailAuthentication {
 	}
 	
 	public static void main(String []args) throws MessagingException{
-		EmailAuthentication ea = new EmailAuthentication("623401157@qq.com","chenquan");
+		EmailAuthentication ea = new EmailAuthentication("mg1332001","chenquan");
 		ea.sendMail();
 	}
 }

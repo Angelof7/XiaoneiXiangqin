@@ -10,6 +10,7 @@
     	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     	<!-- 设置dialect属性可以使用该类型数据库特性 -->
     	<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+    	
     	<!-- 在命令行输出SQL语句 -->
     	<property name="show_sql">true</property>
     	

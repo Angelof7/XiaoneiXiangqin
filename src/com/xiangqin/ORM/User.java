@@ -5,6 +5,7 @@ public class User {
 	private String username;
 	private String password;
     private int firstlogin;
+    private String email;
 	public String getId() {
 		return id;
 	}
@@ -35,5 +36,13 @@ public class User {
 
 	public void setFirstlogin(int firstlogin) {
 		this.firstlogin = firstlogin;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }
