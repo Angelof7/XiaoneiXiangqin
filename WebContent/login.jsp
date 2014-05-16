@@ -58,9 +58,9 @@ body {
 
 		<div style='position: absolute; z-index: 3; right: 300px' id="main">
 			<div id="bg">
-				<form name="loginform" action="login">
+				<form name="loginform" action="login" method="post">
 					<span id="title">南大遇见你</span> 
-					<span id="msg"></span> <a href="#" id="forget">忘记密码</a>
+					<span id="msg">${msg}</span> <a href="#" id="forget">忘记密码</a>
 					<span id="userimg"></span> 
 					<input autofocus="autofocus" id="userName" name="id" placeholder="学  号" type="text" /> 
 					<span id="pwimg"></span> 

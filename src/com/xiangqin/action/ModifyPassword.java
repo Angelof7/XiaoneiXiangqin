@@ -1,6 +1,6 @@
 package com.xiangqin.action;
 
-import java.util.Map;
+import java.security.NoSuchAlgorithmException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,17 +13,14 @@ import com.xiangqin.service.UserService;
 import com.xiangqin.service.impl.UserServiceImpl;
 import com.xiangqin.util.EncrypMD5;
 
-public class LoginAction extends ActionSupport {
-
+public class ModifyPassword extends ActionSupport {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	private String id;
-	private String password;
+	private String oldpwd;
+	private String newpwd;
 	private String checkcode;
-	private Map<String, Object> session;
 	private String msg;
 
 	public String getMsg() {
@@ -34,30 +31,6 @@ public class LoginAction extends ActionSupport {
 		this.msg = msg;
 	}
 
-	public Map<String, Object> getSession() {
-		return session;
-	}
-
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public String getCheckcode() {
 		return checkcode;
 	}
@@ -66,22 +39,41 @@ public class LoginAction extends ActionSupport {
 		this.checkcode = checkcode;
 	}
 
-	public String login() throws Exception {
+	public String getOldpwd() {
+		return oldpwd;
+	}
+
+	public void setOldpwd(String oldpwd) {
+		this.oldpwd = oldpwd;
+	}
+
+	public String getNewpwd() {
+		return newpwd;
+	}
+
+	public void setNewpwd(String newpwd) {
+		this.newpwd = newpwd;
+	}
+
+	public String changePwd() throws NoSuchAlgorithmException {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession(true);
+		User user = (User)session.getAttribute("user");
+		if (user == null) {
+			msg = "请先登录";
+			return ERROR;
+		}
 		if (!checkcode.equalsIgnoreCase(session.getAttribute("checkCode")
 				.toString())) {
 			msg = "验证码错误！";
 			return ERROR;
 		}
 		UserService userservice = new UserServiceImpl();
-		User user = userservice.getUser(id);
-		if (user == null) {
-			msg = "用户不存在";
-			return ERROR;
-		}
+		
 
-		if (user.getPassword().equals(new EncrypMD5().eccrypt(password))) {
+		if (user.getPassword().equals(new EncrypMD5().eccrypt(oldpwd))) {
+			user.setPassword(new EncrypMD5().eccrypt(newpwd));
+			userservice.updateUser(user);
 			session.setAttribute("user", user);
 			return SUCCESS;
 		} else {

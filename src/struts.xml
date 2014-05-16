@@ -7,11 +7,43 @@
 	<constant name="struts.devMode" value="true" />
 
 	<package name="default" namespace="/" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="isLogin"
+				class="com.xiangqin.interceptor.IsLoginInterceptor" />
+			<interceptor-stack name="myDefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="isLogin" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myDefault" />
+
+		<global-results>
+			<result name="globallogin">/login.jsp</result>
+		</global-results>
+
 		<action name="login" class="com.xiangqin.action.LoginAction"
 			method="login">
+			<result name="success">/mainpage.jsp</result>
+			<result name="error">/login.jsp</result>
+		</action>
+
+		
+
+		<action name="profile" class="com.xiangqin.action.ProfileAction"
+			method="profile">
+			<result name="success">/registerSuccess.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+
+		<action name="changePwd" class="com.xiangqin.action.ModifyPassword"
+			method="changePwd">
 			<result name="success">/success.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+	</package>
+
+	<package name="nologin" namespace="/" extends="struts-default">
 		<action name="checkcode" class="com.xiangqin.action.CheckcodeAction"
 			method="execute">
 		</action>
@@ -21,11 +53,6 @@
 			<result name="success">/registerSuccess.jsp</result>
 			<result name="exists">/login.jsp</result>
 			<result name="failure">/register.jsp</result>
-		</action>
-		
-		<action name="profile" class="com.xiangqin.action.ProfileAction" method="profile">
-			<result name="success">/registerSuccess.jsp</result>
-			<result name="failure">/error.jsp</result>
 		</action>
 	</package>
 </struts>

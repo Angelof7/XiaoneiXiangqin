@@ -14,6 +14,6 @@
 		<property name="username" column="display_name" type="string"></property>
 		<property name="email" column="email" type="string"></property>
 		<property name="password" column="password" type="string"></property>
-		<property name="firstlogin" column="loginfirst" type="int" ></property>
+		<property name="firstlogin" column="firstlogin" type="int" ></property>
 	</class>
 </hibernate-mapping>
