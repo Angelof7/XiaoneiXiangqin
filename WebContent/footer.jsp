@@ -4,19 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="apple-touch-icon-precomposed" href="logo_ipad.png" />
-<link rel="shortcut icon" href="img/favicon.ico"/>
+
 <link rel="stylesheet" href="css/main.min.css" />
 <link rel="stylesheet" href="css/page.min.css" />
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 
 </head>
 <body>
-<footer class="footer">
-	<div class="foot">
-		<br /> 南大敏捷团队版权所有<br />
-		<span class="cRed">&copy;2014-2016</span>
-	</div>
+	<footer class="footer">
+		<div class="foot">
+			<br /> 南大敏捷团队版权所有<br />
+			<span class="cRed">&copy;2014-2016</span>
+		</div>
 	</footer>
 </body>
 </html>

@@ -8,9 +8,8 @@
 
 </head>
 <body>
-	<h1>Login Success!</h1>
-	Welcome!
-	<br> ${user.username }
+	<h1>${msg }</h1>
+	<a href="login.jsp">重新登录</a>
 
 </body>
 </html>

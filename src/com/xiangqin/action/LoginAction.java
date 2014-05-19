@@ -69,9 +69,15 @@ public class LoginAction extends ActionSupport {
 	public String login() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession(true);
-		if (!checkcode.equalsIgnoreCase(session.getAttribute("checkCode")
-				.toString())) {
-			msg = "验证码错误！";
+		try {
+			if (!checkcode.equalsIgnoreCase(session.getAttribute("checkCode")
+					.toString())) {
+				msg = "验证码错误！";
+				return ERROR;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 			return ERROR;
 		}
 		UserService userservice = new UserServiceImpl();

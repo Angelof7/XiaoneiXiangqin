@@ -9,7 +9,7 @@
 <link rel="shortcut icon" href="img/favicon.ico"/>
 <link rel="stylesheet" href="css/main.min.css" />
 <link rel="stylesheet" href="css/page.min.css" />
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+
 
 </head>
 <body>
@@ -23,7 +23,7 @@
 			<li id="trend"><a href="#"><span>动态</span></a></li>
 			<li><a href="#"><span>兴趣搜索</span></a></li>
 			<li><a href="#"><span>搭讪广场</span></a></li>
-			<li><a href="#"><span>个人主页</span></a></li>
+			<li class="current"><a href="mainpage.action"><span>个人主页</span></a></li>
 		</ul>
 
 		<div class="header-info js-header-info">
@@ -34,11 +34,11 @@
 				</span>
 				<div class="header-info-list header-info-setting-list">
 					<ul>
-						<li><a href="password.jsp"><span>修改密码</span></a></li>
+						<li><a href="password.action"><span>修改密码</span></a></li>
 						<li><a href="#"><span>会员服务中心</span></a></li>
 						
 						<li class="line"></li>
-						<li><a id="logOut" href="javascript:;"><span>退出</span></a></li>
+						<li><a id="logOut" href="exit.action"><span>退出</span></a></li>
 					</ul>
 				</div>
 			</div>

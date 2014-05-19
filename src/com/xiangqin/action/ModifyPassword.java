@@ -74,11 +74,13 @@ public class ModifyPassword extends ActionSupport {
 		if (user.getPassword().equals(new EncrypMD5().eccrypt(oldpwd))) {
 			user.setPassword(new EncrypMD5().eccrypt(newpwd));
 			userservice.updateUser(user);
-			session.setAttribute("user", user);
+			msg = user.getId()+", 密码修改成功,请重新登录";
+			session.invalidate();
 			return SUCCESS;
 		} else {
 			msg = "密码错误";
 			return ERROR;
 		}
 	}
+	
 }

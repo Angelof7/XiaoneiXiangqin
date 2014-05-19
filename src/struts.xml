@@ -19,16 +19,13 @@
 		<default-interceptor-ref name="myDefault" />
 
 		<global-results>
-			<result name="globallogin">/login.jsp</result>
+			<result name="globallogin" type="redirect">/login.jsp</result>
 		</global-results>
 
-		<action name="login" class="com.xiangqin.action.LoginAction"
-			method="login">
+		<action name="mainpage" class="com.xiangqin.action.MainPageAction">
 			<result name="success">/mainpage.jsp</result>
-			<result name="error">/login.jsp</result>
 		</action>
 
-		
 
 		<action name="profile" class="com.xiangqin.action.ProfileAction"
 			method="profile">
@@ -36,10 +33,18 @@
 			<result name="failure">/error.jsp</result>
 		</action>
 
+		<action name="password" >
+			<result>/password.jsp</result>
+		</action>
+
 		<action name="changePwd" class="com.xiangqin.action.ModifyPassword"
 			method="changePwd">
-			<result name="success">/success.jsp</result>
+			<result name="success">/password.jsp</result>
 			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="exit" class="com.xiangqin.action.ExitAction">
+			<result type="redirect">/login.jsp</result>
 		</action>
 	</package>
 
@@ -47,7 +52,13 @@
 		<action name="checkcode" class="com.xiangqin.action.CheckcodeAction"
 			method="execute">
 		</action>
-		
+
+		<action name="login" class="com.xiangqin.action.LoginAction"
+			method="login">
+			<result name="success">/mainpage.jsp</result>
+			<result name="error" >/login.jsp</result>
+		</action>
+
 		<action name="register" class="com.xiangqin.action.RegisterAction"
 			method="register">
 			<result name="success">/registerSuccess.jsp</result>
