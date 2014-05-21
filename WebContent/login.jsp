@@ -80,7 +80,7 @@ body {
 					<input id="checkcode" name="checkcode" placeholder="输入右边的验证码" type="text" />
 					<img src="checkcode.action" alt="验证码" id="codeImg" alt="change" onclick="changeImg()" />
 					<span onclick="document.loginform.submit();" id="login" class="login">登 入</span>
-					<a href="register.jsp" style="text-decoration: none;"> 
+					<a href="register/register.jsp" style="text-decoration: none;"> 
 					<span id="register" class="login">注 册</span>
 					</a>
 				</form>
