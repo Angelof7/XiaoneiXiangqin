@@ -1,5 +1,4 @@
 // JavaScript Document
-
 $(document).ready(function(e) {
 	//获取用户文本框
 	var userName=$("#userName");
@@ -12,7 +11,6 @@ $(document).ready(function(e) {
 	
 	//给用户文本框置焦点
 	userName.focus();
-	
 	//绑定用户文本框焦点事件，失去焦点事件，按下某件事件
 	userName.focus(function(){
 		userimg.css("background-position","0px");
@@ -49,12 +47,28 @@ $(document).ready(function(e) {
     
   //绑定登陆按钮点击事件，移入事件，移出事件
     $("#register").click(function(){
-		
-	}).mousemove(function(){
+    	$.XYTipsWindow({
+    		___title:"用户注册",
+			___content:"iframe:http://localhost:8084/XiaoneiXiangqin/register/register.jsp",
+			___width:"460",
+			___height:"450",
+			___showbg:true,
+			___drag:"___boxTitle"
+		});
+    }).mousemove(function(){
 		$(this).css("background-position","-138px");
 	}).mouseout(function(){
 		$(this).css("background-position","0px");
 	});
-		
-	
+    $("#forget").click(function(){
+    	$.XYTipsWindow({
+    		___title:"找回密码",
+			___content:"iframe:http://localhost:8084/XiaoneiXiangqin/findpwd/findpwd.jsp",
+			___width:"300",
+			___height:"250",
+			___showbg:true,
+			___drag:"___boxTitle"
+		});
+    });
+    
 });

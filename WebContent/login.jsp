@@ -13,14 +13,15 @@
 <title>用户登录</title>
 <link type="text/css" rel="stylesheet" href="css/login.css" />
 <link type="text/css" rel="stylesheet" href="css/jquery.validity.css" />
+<link href="css/box_style.css" type="text/css" rel="stylesheet" />
 
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="js/jquery.validity.js"></script>
 <script type="text/javascript" src="js/lgoin.js"></script>
 <script type="text/javascript" src="js/rainyday.js"></script>
+<script type="text/javascript" src="js/jquery.XYTipsWindow.2.8.js"></script>
 <style media="screen" type="text/css">
-
-
 body {
 	overflow: hidden;
 }
@@ -40,6 +41,7 @@ body {
 		engine.VARIABLE_GRAVITY_ANGLE = Math.PI / 8;
 		engine.rain([ engine.preset(0, 2, 0.5), engine.preset(4, 4, 1) ], 50);
 	}
+
 </script>
 
 <script type="text/javascript">
@@ -71,7 +73,7 @@ body {
 			<div id="bg">
 				<form name="loginform" action="login" method="post">
 					<span id="title">南大遇见你</span> 
-					<span id="msg">${msg}</span> <a href="#" id="forget">忘记密码</a>
+					<span id="msg">${msg}</span> <a id="forget" href="#">忘记密码</a>
 					<span id="userimg"></span> 
 					<input autofocus="autofocus" id="userName" name="id" placeholder="学  号" 
 					type="text" require="true" datatype="require" msg=" 不能为空 "/> 
@@ -80,9 +82,9 @@ body {
 					<input id="checkcode" name="checkcode" placeholder="输入右边的验证码" type="text" />
 					<img src="checkcode.action" alt="验证码" id="codeImg" alt="change" onclick="changeImg()" />
 					<span onclick="document.loginform.submit();" id="login" class="login">登 入</span>
-					<a href="register/register.jsp" style="text-decoration: none;"> 
+
 					<span id="register" class="login">注 册</span>
-					</a>
+
 				</form>
 			</div>
 			

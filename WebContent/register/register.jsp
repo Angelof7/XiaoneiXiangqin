@@ -7,13 +7,23 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="../js/register.js"></script>
+<script type="text/javascript" language="javascript">
+function changeImg() {
+	$("#codeImg").attr("src", "checkcode.action?d=" + new Date().valueOf());
+}
+</script>
 </head>
 <body>
+  <div align="center">
     <h3>欢迎注册南大相亲网站</h3>
     <form action="register" name="registerForm" method="post" id="form" name="form">
-    学号<input id="studentCard" name="studentCard" type="text" ><font color="red"><label id="validate"></label></font><br>
- <input id="submit" name="submit" type="submit" value="提交" onclick="return check()">
+  学  号:<input id="studentCard" name="studentCard" type="text" ><br>
+ 验证码:<input id="checkcode" name="checkcode" placeholder="输入右边的验证码" type="text" size="9" />
+    <img src="checkcode.action" alt="验证码" id="codeImg" alt="change" onclick="changeImg()" /><br>
+    <font color="red"><label id="validate">${mesg}</label></font><br>
+ <input id="submit" name="submit" type="submit" value="马上注册">
     
     </form>
+   </div>
 </body>
 </html>

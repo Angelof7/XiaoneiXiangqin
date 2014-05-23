@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.xiangqin.ORM.User;
@@ -15,14 +19,32 @@ import com.xiangqin.util.VerificationId;
 public class RegisterAction extends ActionSupport {
     private String studentCard;
     private String email;
-    public String mesg = ""; 
-    public String register() throws MessagingException, IOException{
+    public String mesg = "";
+    private String checkcode;
+
+
+	public String register() throws MessagingException, IOException{
     	User user = null;
-    	UserServiceImpl usi = new UserServiceImpl();	
+    	UserServiceImpl usi = new UserServiceImpl();
+    	HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession(true);
+		System.out.println(session.getAttribute("checkCode"));
+		if (!checkcode.equalsIgnoreCase(session.getAttribute("checkCode")
+					.toString())) {
+				mesg = "验证码错误！";
+				return "erro";
+		}
     	if(studentCard!=null){
     		VerificationId vi = new VerificationId(studentCard);//验证学生时间是否允许  
-    		String regx = "^\\w{2}\\d{7}";
-        	if(Pattern.matches(regx, studentCard)&&vi.verificationId()){//判定输入学号是否满足此要求
+    		String regx = "^[A-Za-z]{2}[0-9]{7}$";
+    		boolean flag = Pattern.matches(regx, studentCard);
+    		System.out.println(flag);
+    		if(!flag){
+    			System.out.println("学号输入有问题");
+    			mesg = "学号输入有误!";
+    			return "erro";
+    		}
+        	if(vi.verificationId()){//判定输入学号是否满足此要求
     		  EmailAuthentication ea = new EmailAuthentication(this.studentCard,this.email);
     		  user = usi.getUser(studentCard);
     		  if(user!=null){
@@ -39,7 +61,7 @@ public class RegisterAction extends ActionSupport {
     				usi.saveUser(createUser);
     				return "success";
     			}else{
-    				mesg = "系统正忙，请稍后再试，<a href='./register.jsp'>返回注册</a>";
+    			mesg = "系统正忙，请稍后再试，<a href='./register.jsp'>返回注册</a>";
     				return "erro";
     			}
     		 }
@@ -64,5 +86,11 @@ public class RegisterAction extends ActionSupport {
 	public void setEmail() {
 		this.email = this.studentCard+"@smail.nju.edu.cn";
 	}
-     
+    public String getCheckcode() {
+		return checkcode;
+	}
+
+	public void setCheckcode(String checkcode) {
+		this.checkcode = checkcode;
+	}
 }

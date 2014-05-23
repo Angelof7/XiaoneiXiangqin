@@ -21,6 +21,6 @@
 </head>
 <body>
  
-注册成功：<a id="login" name="login" target="_blank">登录邮箱获取密码</a><br>
+密码找回成功：<a id="login" name="login" href="#" target="_blank">登录邮箱查看</a><br>
 </body>
 </html>

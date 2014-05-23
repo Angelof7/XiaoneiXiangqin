@@ -61,9 +61,13 @@
 
 		<action name="register" class="com.xiangqin.action.RegisterAction"
 			method="register">
-			<result name="success">/registerSuccess.jsp</result>
-			<result name="exists">/login.jsp</result>
-			<result name="failure">/register.jsp</result>
+			<result name="success">/register/success.jsp</result>
+			<result name="erro">/register/register.jsp</result>
+		</action>
+		<action name="findpwd" class="com.xiangqin.action.FindPwdAction"
+			method="findPassword">
+			<result name="success">/findpwd/success.jsp</result>
+			<result name="erro">/findpwd/findpwd.jsp</result>
 		</action>
 	</package>
 </struts>
