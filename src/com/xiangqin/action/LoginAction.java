@@ -13,6 +13,8 @@ import com.xiangqin.service.UserService;
 import com.xiangqin.service.impl.UserServiceImpl;
 import com.xiangqin.util.EncrypMD5;
 
+;
+
 public class LoginAction extends ActionSupport {
 
 	/**
@@ -87,7 +89,7 @@ public class LoginAction extends ActionSupport {
 			return ERROR;
 		}
 
-		if (user.getPassword().equals(new EncrypMD5().eccrypt(password))) {
+		if (user.getPassword().equals(EncrypMD5.eccrypt(password))) {
 			session.setAttribute("user", user);
 			return SUCCESS;
 		} else {

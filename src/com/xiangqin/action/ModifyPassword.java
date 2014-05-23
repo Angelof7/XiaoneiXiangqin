@@ -58,7 +58,7 @@ public class ModifyPassword extends ActionSupport {
 	public String changePwd() throws NoSuchAlgorithmException {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession(true);
-		User user = (User)session.getAttribute("user");
+		User user = (User) session.getAttribute("user");
 		if (user == null) {
 			msg = "请先登录";
 			return ERROR;
@@ -69,12 +69,11 @@ public class ModifyPassword extends ActionSupport {
 			return ERROR;
 		}
 		UserService userservice = new UserServiceImpl();
-		
 
-		if (user.getPassword().equals(new EncrypMD5().eccrypt(oldpwd))) {
-			user.setPassword(new EncrypMD5().eccrypt(newpwd));
+		if (user.getPassword().equals(EncrypMD5.eccrypt(oldpwd))) {
+			user.setPassword(EncrypMD5.eccrypt(newpwd));
 			userservice.updateUser(user);
-			msg = user.getId()+", 密码修改成功,请重新登录";
+			msg = user.getId() + ", 密码修改成功,请重新登录";
 			session.invalidate();
 			return SUCCESS;
 		} else {
@@ -82,5 +81,5 @@ public class ModifyPassword extends ActionSupport {
 			return ERROR;
 		}
 	}
-	
+
 }
