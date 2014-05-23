@@ -51,7 +51,7 @@ $(document).ready(function(e) {
     		___title:"用户注册",
 			___content:"iframe:http://localhost:8084/XiaoneiXiangqin/register/register.jsp",
 			___width:"460",
-			___height:"450",
+			___height:"300",
 			___showbg:true,
 			___drag:"___boxTitle"
 		});

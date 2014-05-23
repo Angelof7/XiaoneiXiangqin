@@ -17,6 +17,8 @@
 <link rel="stylesheet" href="css/main.min.css" />
 <link rel="stylesheet" href="css/page.min.css" />
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.easytabs.min.js"></script>
+<script type="text/javascript" src="js/jquery.hashchange.min.js"></script>
 
 <style>
 #codeImg {
@@ -33,7 +35,8 @@
 #
 </style>
 
-<script type="text/javascript">
+<script type="text/javascript" language="javascript">
+    $("#tab-container").easytabs();
 	function changeImg() {
 		$("#codeImg").attr("src", "checkcode.action?d=" + new Date().valueOf());
 	}
@@ -159,24 +162,41 @@
 			</div>
 		</div>
 	</div>
+	<div class="person_img" style="height:50px;margin-top:-20px;">
+	    
+	</div>
 	<div class="contentBox">
-		<div class="contentBox-inner">
+		<div class="tab-container" id="tab-container">
 			<ul class="tabBar">
-
-				<li class="last current"><a>个人主页</a></li>
+				<li class="tab"><a href="#person">个人主页</a></li>
+				<li class="tab"><a href="#form1">个人资料</a></li>
+				<li class="tab"><a href="#form2">我的问答</a></li>
 			</ul>
-
-			<div id="form1">
-				<h1>Login Success!</h1>
-				Welcome! <br> ${user.username }<br>${user.id}
+			<div class="panel-container">
+	            <div id="person">
+	               <h1>我的动态</h1>
+					Welcome! <br> ${user.username }<br>${user.id}
+	            </div>
+				<div id="form1">
+					<h1>个人资料</h1>
+					Welcome! <br> ${user.username }<br>${user.id}
+				</div>
+				<div id="form2">
+					<h1>我的问答</h1>
+					Welcome! <br> ${user.username }<br>${user.id}
+				</div>
 			</div>
 		</div>
+		<div class="right">
+		     <h5><label>我在右边</label></h5>
+		     <br><br><br><br><br><br><br><br><br><br><br><br>
+		</div>
+		<div style="clear:both;"></div>
 	</div>
-
+    <script type="text/javascript" language="javascript">
+    $("#tab-container").easytabs();
+    </script>
+    
 	<jsp:include page="footer.jsp" />
-
-
-
-
 </body>
 </html>

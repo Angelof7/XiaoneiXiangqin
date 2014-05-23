@@ -22,6 +22,11 @@ function changeImg() {
     <img src="checkcode.action" alt="验证码" id="codeImg" alt="change" onclick="changeImg()" /><br>
     <font color="red"><label id="validate">${mesg}</label></font><br>
  <input id="submit" name="submit" type="submit" value="马上注册">
+ <br>
+ <br>
+ <br>
+ <br>
+ <h5>提示：注册完，请登录学校邮箱获取密码登录!<br>谢谢您的注册</h5>
     
     </form>
    </div>

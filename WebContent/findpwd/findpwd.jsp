@@ -17,8 +17,8 @@
           <form action="findpwd" method="get" id="formPwd">
               请输入你的学号：<input id="studentCard" type="text" name="studentCard"><br>
               <font color="red"><label id="validate">${mesg }</label></font><br>
-              <input type="submit" id="submit" name="submit" value="找回密码"><br><br><br>
-              <label>*密码会发到你的学校邮箱内，<br>请注意查收</label>
+              <input type="submit" id="submit" name="submit" value="找回密码"><br><br><br><br>
+              <label>提示：密码会发到你的学校邮箱内，<br>请注意查收</label>
           </form>
      </div>
 </body>
