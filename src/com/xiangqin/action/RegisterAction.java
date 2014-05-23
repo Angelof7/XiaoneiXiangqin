@@ -48,7 +48,7 @@ public class RegisterAction extends ActionSupport {
     		  EmailAuthentication ea = new EmailAuthentication(this.studentCard,this.email);
     		  user = usi.getUser(studentCard);
     		  if(user!=null){
-    			 mesg = "你已经注册，请直接登录，如果密码忘记，请找回密码!<a href='/findpwd.jsp'>找回密码</a>";
+    			 mesg = "你已经注册，请直接登录，如果密码忘记，请找回密码!<a href='../findpwd/findpwd.jsp'>找回密码</a>";
     		     return "erro";	
     		  }else{    			
     			if(ea.sendMail()){
