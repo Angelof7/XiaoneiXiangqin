@@ -71,7 +71,7 @@
 				<div id="userStatusBar" class="profile-basic-verified">
 					<span id="profileVerifyName"
 						class="profile-basic-name js-nickname ">${user.getUsername() }</span> <span
-						class="profile-basic-id">ID：${user.id }</span>
+						class="profile-basic-id">ID：${user.getId() }</span>
 				</div>
 				<div class="profile-basic-info">
 					<div class="profile-basic-info-left">
@@ -82,50 +82,7 @@
 						<span style="float: left;"> 资料完整度：<span
 							class="js-totalPercent">58</span>%
 						</span>
-						<ul class="profile-basic-integrity-view js-moduleIntroList">
-							<li class="js-item js-monologBox-intro modify-trigger "
-								data-moduleName="monologBox" title="立即完善"><em
-								class="icon-profile-integrity"></em> <span
-								class="profile-basic-integrity-text js-text">完善内心独白，资料完整度+<span
-									class="js-percent">10</span>%
-							</span></li>
-							<li class="js-item js-loverDescBox-intro modify-trigger hidden"
-								data-moduleName="loverDescBox" title="立即完善"><em
-								class="icon-profile-integrity"></em> <span
-								class="profile-basic-integrity-text js-text">完善择偶要求，资料完整度+<span
-									class="js-percent">0</span>%
-							</span></li>
-							<li class="js-item js-summaryInfoBox-intro modify-trigger "
-								data-moduleName="summaryInfoBox" title="立即完善"><em
-								class="icon-profile-integrity"></em> <span
-								class="profile-basic-integrity-text js-text">完成基本资料填写，资料完整度+<span
-									class="js-percent">2</span>%
-							</span></li>
-							<li class="js-item js-detailInfoBox-intro modify-trigger "
-								data-moduleName="detailInfoBox" title="立即完善"><em
-								class="icon-profile-integrity"></em> <span
-								class="profile-basic-integrity-text js-text">完善详细资料，资料完整度+<span
-									class="js-percent">2</span>%
-							</span></li>
-							<li class="js-item js-lifeViewBox-intro modify-trigger "
-								data-moduleName="lifeViewBox" title="立即完善"><em
-								class="icon-profile-integrity"></em> <span
-								class="profile-basic-integrity-text js-text">完善生活婚恋观，资料完整度+<span
-									class="js-percent">20</span>%
-							</span></li>
-							<li class="js-item js-uploadPicBox-intro modify-trigger "
-								data-moduleName="uploadPicBox" title="立即完善"><em
-								class="icon-profile-integrity"></em> <span
-								class="profile-basic-integrity-text js-text">上传<span
-									class="js-count">4</span>张以上个人照，资料完整度+<span class="js-percent">8</span>%
-							</span></li>
-							<li class="js-item js-QA-intro modify-trigger hidden"
-								data-moduleName="QA" title="立即完善"><em
-								class="icon-profile-integrity"></em> <span
-								class="profile-basic-integrity-text js-text">完成<span
-									class="js-count">0</span>道以上Q&A，资料完整度+<span class="js-percent">0</span>%
-							</span></li>
-						</ul>
+						
 					</div>
 				</div>
 				<div class="profile-basic-tag clearfix js-tag"
