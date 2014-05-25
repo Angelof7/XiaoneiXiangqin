@@ -17,5 +17,6 @@
     	<!-- Model属性与数据库字段的映射文件 -->
     	<mapping resource="com/xiangqin/ORM/User.hbm.xml" />
     	<mapping resource="com/xiangqin/ORM/UserInfo.hbm.xml"/>
+    	<mapping resource="com/xiangqin/ORM/DetailInfo.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

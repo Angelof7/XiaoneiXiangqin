@@ -8,7 +8,7 @@ import com.xiangqin.ORM.DetailInfo;
  *
  */
 public interface DetailInfoDAO {
-	public DetailInfo getDetailInfo(int userId);
+	public DetailInfo getDetailInfoByUserId(String userId);
 	public int updateDetailInfo(DetailInfo di);
 	public void saveDetailInfo(DetailInfo di);
 }

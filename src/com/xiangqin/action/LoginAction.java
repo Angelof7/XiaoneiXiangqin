@@ -8,8 +8,11 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.xiangqin.ORM.DetailInfo;
 import com.xiangqin.ORM.User;
+import com.xiangqin.service.DetailInfoService;
 import com.xiangqin.service.UserService;
+import com.xiangqin.service.impl.DetailInfoServiceImpl;
 import com.xiangqin.service.impl.UserServiceImpl;
 import com.xiangqin.util.EncrypMD5;
 
@@ -91,10 +94,16 @@ public class LoginAction extends ActionSupport {
 
 		if (user.getPassword().equals(EncrypMD5.eccrypt(password))) {
 			session.setAttribute("user", user);
+			session.setAttribute("detaiInfo", getDetailInfo(user));
 			return SUCCESS;
 		} else {
 			msg = "密码错误";
 			return ERROR;
 		}
+	}
+	
+	private DetailInfo getDetailInfo(User user){
+		DetailInfoService diService = new DetailInfoServiceImpl();
+		return diService.getDetailInfoByUserId(user.getId());
 	}
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.xiangqin.ORM.DetailInfo" table="DetailInfo">
+		<id name="id" column="Id" type="int">
+			<generator class="native" />
+		</id>
+		<property name="userId" column="display_name" type="string" />
+		<property name="nickName" column="email" type="string" />
+		<property name="marriageStatus" column="password" type="string" />
+		<property name="objectType" column="firstlogin" type="int" />
+		<property name="gender" column="Gender" type="int" />
+		<property name="age" column="Age" type="int" />
+		<property name="height" column="Height" type="int" />
+		<property name="weight" column="Weight" type="int" />
+		<property name="liveLocation" column="LiveLocation" type="string" />
+		<property name="education" column="Education" type="int" />
+		<property name="graduateFrom" column="GraduateFrom" type="string" />
+		<property name="industry" column="Industry" type="string" />
+		<property name="company" column="Company" type="string" />
+		<property name="currentJob" column="CurrentJob" type="string" />
+		<property name="monthlyIncome" column="MonthlyIncome" type="int" />
+		<property name="account" column="Account" type="string" />
+		<property name="housingCondition" column="HousingCondition" type="int" />
+		<property name="carCondition" column="CarCondition" type="int" />
+		<property name="ethnic" column="Ethnic" type="string" />
+		<property name="birthLocation" column="BirthLocation" type="string" />
+		<property name="homeRanking" column="HomeRanking" type="int" />
+		<property name="haveChildern" column="HaveChildern" type="int" />
+		<property name="constellation" column="Constellation" type="string" />
+		<property name="bloodType" column="BloodType" type="int" />
+		<property name="zodiac" column="Zodiac" type="int" />
+		<property name="religion" column="Religion" type="int" />
+		<property name="weiboURL" column="WeiBoURL" type="string" />
+		<property name="doubanURL" column="DouBanURL" type="string" />
+	</class>
+</hibernate-mapping>

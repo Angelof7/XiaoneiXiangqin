@@ -7,8 +7,8 @@ package com.xiangqin.ORM;
 public class DetailInfo {
 	//	primary key
 	private int id;
-	//	用户ID
-	private int userId;
+	//	用户ID，与User表的Id相同
+	private String userId;
 	//	昵称
 	private String nickName;
 	//	0 未婚；1已婚
@@ -68,10 +68,10 @@ public class DetailInfo {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	public String getNickName() {
