@@ -7,57 +7,57 @@ package com.xiangqin.ORM;
 public class DetailInfo {
 	//	primary key
 	private int id;
-	//	ÓÃ»§ID
+	//	ç”¨æˆ·ID
 	private int userId;
-	//	êÇ³Æ
+	//	æ˜µç§°
 	private String nickName;
-	//	0 Î´»é£»1ÒÑ»é
+	//	0 æœªå©šï¼›1å·²å©š
 	private int MarriageStatus;
-	//	0 ½á»é¶ÔÏó£»1 ÁµÈË£»2  ÆÕÍ¨ÅóÓÑ£»3Öª¼º
+	//	0 ç»“å©šå¯¹è±¡ï¼›1 æ‹äººï¼›2  æ™®é€šæœ‹å‹ï¼›3çŸ¥å·±
 	private int ObjectType;
 	private int gender;
 	private int age;
 	private int height;
 	private int weight;
-	//	¾Ó×¡µØ
+	//	å±…ä½åœ°
 	private String liveLocation;
-	//  0 ´ó×¨ÒÔÏÂ£»1´ó×¨£»2±¾¿Æ£»3Ë¶Ê¿£»4²©Ê¿
+	//  0 å¤§ä¸“ä»¥ä¸‹ï¼›1å¤§ä¸“ï¼›2æœ¬ç§‘ï¼›3ç¡•å£«ï¼›4åšå£«
 	private int education;
-	//	±ÏÒµÔºĞ£
+	//	æ¯•ä¸šé™¢æ ¡
 	private String graduateFrom;
-	//	ĞĞÒµ
+	//	è¡Œä¸š
 	private String industry;
-	//	¹¤×÷µ¥Î»
+	//	å·¥ä½œå•ä½
 	private String company;
-	//	µ±Ç°Ö°Î»
+	//	å½“å‰èŒä½
 	private String currentJob;
-	//	ÔÂÊÕÈë
+	//	æœˆæ”¶å…¥
 	private int monthlyIncome;
-	//	»§¿Ú
+	//	æˆ·å£
 	private String account;
-	//	0ÇëÑ¡Ôñ£»1ÒÑ¹º·¿£»2×â·¿£»3µ¥Î»ËŞÉá£»4ºÍ¼ÒÈËÍ¬×¡
+	//	0è¯·é€‰æ‹©ï¼›1å·²è´­æˆ¿ï¼›2ç§Ÿæˆ¿ï¼›3å•ä½å®¿èˆï¼›4å’Œå®¶äººåŒä½
 	private int housingCondition;
-	//	0ÇëÑ¡Ôñ£»1ÒÑ¹º³µ£»2Î´¹º³µ
+	//	0è¯·é€‰æ‹©ï¼›1å·²è´­è½¦ï¼›2æœªè´­è½¦
 	private int carCondition;
-	//	Ãñ×å
+	//	æ°‘æ—
 	private String ethnic;
-	//	¼®¹á
+	//	ç±è´¯
 	private String birthLocation;
-	//	0¶ÀÉú×ÓÅ®£»1ÀÏ´ó£»2ÀÏ¶ş£»ÒÀ´ÎÀàÍÆ
+	//	0ç‹¬ç”Ÿå­å¥³ï¼›1è€å¤§ï¼›2è€äºŒï¼›ä¾æ¬¡ç±»æ¨
 	private int homeRanking;
-	//  0ÇëÑ¡Ôñ£»1Ğ¡º¢¹é×Ô¼º£»2Ğ¡º¢¹é¶Ô·½
+	//  0è¯·é€‰æ‹©ï¼›1å°å­©å½’è‡ªå·±ï¼›2å°å­©å½’å¯¹æ–¹
 	private int haveChildern;
-	//	ĞÇ×ù
+	//	æ˜Ÿåº§
 	private String constellation;
-	//	0ÇëÑ¡Ôñ£»1 AĞÍ£»2 BĞÍ£»3 ABĞÍ£»4 OĞÍ
+	//	0è¯·é€‰æ‹©ï¼›1 Aå‹ï¼›2 Bå‹ï¼›3 ABå‹ï¼›4 Oå‹
 	private int bloodType;
-	//  0 Êó£»1Å££»2»¢£»3ÍÃ£»4Áú£»5Éß£»6Âí£»7Ñò£»8ºï£»9¼¦£»10¹·£»11Öí
+	//  0 é¼ ï¼›1ç‰›ï¼›2è™ï¼›3å…”ï¼›4é¾™ï¼›5è›‡ï¼›6é©¬ï¼›7ç¾Šï¼›8çŒ´ï¼›9é¸¡ï¼›10ç‹—ï¼›11çŒª
 	private int zodiac;
-	//	0ÇëÑ¡Ôñ£»1 ÎŞ×Ú½ÌĞÅÑö£»2 ·ğ½Ì£»3µÀ½Ì£»4Èå½Ì£»5»ù¶½½Ì£»6ÓÌÌ«½Ì£»7ÒÁË¹À¼½Ì£»8ÆäËû½Ì
+	//	0è¯·é€‰æ‹©ï¼›1 æ— å®—æ•™ä¿¡ä»°ï¼›2 ä½›æ•™ï¼›3é“æ•™ï¼›4å„’æ•™ï¼›5åŸºç£æ•™ï¼›6çŠ¹å¤ªæ•™ï¼›7ä¼Šæ–¯å…°æ•™ï¼›8å…¶ä»–æ•™
 	private int religion;
-	//	Î¢²©µØÖ·
+	//	å¾®åšåœ°å€
 	private String weiboURL;
-	//	¶¹°êµØÖ·
+	//	è±†ç“£åœ°å€
 	private	String doubanURL;
 	
 	
