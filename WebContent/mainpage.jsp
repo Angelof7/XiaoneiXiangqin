@@ -198,38 +198,38 @@
 						<li>
 							<span>基本资料</span>
 							<ul>
-								<li>昵称：敏捷小组</li>
-    							<li>婚姻状态：未婚</li>
-    							<li>我在寻找：结婚对象</li>
-    							<li>性别：男</li>
-    							<li>年龄：23岁</li>
-    							<li>身高：180cm</li>
-    							<li>体重：--</li>
-								<li>居住在：东莞</li>
-								<li>学历：硕士</li>
-								<li>毕业院校：--</li>
-								<li>行业：--</li>
-								<li>工作单位：-- 去认证</li>
-								<li>目前职位：--</li>
-								<li>月收入：2000-4000元</li>
+								<li>昵称:${detailInfo.nickName}</li>
+    							<li>婚姻状态：${detailInfo.marriageStatus}</li>
+    							<li>我在寻找：${detailInfo.objectType}</li>
+    							<li>性别：${detailInfo.gender}</li>
+    							<li>年龄：${detailInfo.age}岁</li>
+    							<li>身高：${detailInfo.height}cm</li>
+    							<li>体重：${detailInfo.weight}kg</li>
+								<li>居住在：${detailInfo.liveLocation}</li>
+								<li>学历：${detailInfo.education}</li>
+								<li>毕业院校：${detailInfo.graduateFrom}</li>
+								<li>行业：${detailInfo.industry}</li>
+								<li>工作单位：${detailInfo.company}</li>
+								<li>目前职位：${detailInfo.currentJob}</li>
+								<li>月收入：${detailInfo.monthlyIncome}</li>
 							</ul>
 						</li>
 						<li>
 							<span>详细资料</span>
 							<ul>
-								<li>户口：--</li>
-								<li>住房情况：--</li>
-								<li>购车情况：--</li>
-								<li>民族：--</li>
-								<li>籍贯：--</li>
-								<li>家中排行：--</li>
-								<li>有无子女：无小孩</li>
-								<li>星座：魔羯座</li>
-								<li>血型：--</li>
-								<li>属相：马</li>
-								<li>宗教信仰：--</li>
-								<li>微博地址：--</li>
-								<li>豆瓣地址：--</li>
+								<li>户口：${detailInfo.account}</li>
+								<li>住房情况：${detailInfo.housingCondition}</li>
+								<li>购车情况：${detailInfo.carCondition}</li>
+								<li>民族：${detailInfo.ethnic}</li>
+								<li>籍贯：${detailInfo.birthLocation}</li>
+								<li>家中排行：${detailInfo.homeRanking}</li>
+								<li>有无子女：${detailInfo.haveChildren}</li>
+								<li>星座：${detailInfo.constellation}</li>
+								<li>血型：${detailInfo.bloodType}</li>
+								<li>属相：${detailInfo.zodiac}</li>
+								<li>宗教信仰：${detailInfo.religion}</li>
+								<li>微博地址：${detailInfo.weiboURL}</li>
+								<li>豆瓣地址：${detailInfo.doubanURL}</li>
 							</ul>
 						</li>
 					</ul>
