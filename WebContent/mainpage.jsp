@@ -55,11 +55,11 @@
 			data-log="basicInfoBox">
 			<div class="profile-basic-avatar">
 				<div class="profile-basic-avatar-imgBox  profile-basic-avatar-mine">
-					<a href="/settings/face"> <img
-						src="#" alt="头像"/>
+					<a href="/settings/face"> 
+					<img src="#" alt="头像"/>
 					</a>
 					<div class="profile-basic-avatar-update">
-						<i></i> <a href="">点击修改头像</a>
+						<i></i> <a href="updateface.jsp">点击修改头像</a>
 					</div>
 				</div>
 				<div class="profile-basic-user-online" data-log="profileOnline">

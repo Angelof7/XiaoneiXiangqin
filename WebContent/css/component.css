@@ -93,7 +93,7 @@
 }
 
 .cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
-	border-right-color: #fff;
+	border-right-color: #6cbfee;
 }
 
 /* The icons */

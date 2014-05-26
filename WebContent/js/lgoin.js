@@ -49,7 +49,7 @@ $(document).ready(function(e) {
     $("#register").click(function(){
     	$.XYTipsWindow({
     		___title:"用户注册",
-			___content:"iframe:http://localhost:8080/XiaoneiXiangqin/register/register.jsp",
+			___content:"iframe:http://localhost:8084/XiaoneiXiangqin/register/register.jsp",
 			___width:"460",
 			___height:"300",
 			___showbg:true,
@@ -63,7 +63,7 @@ $(document).ready(function(e) {
     $("#forget").click(function(){
     	$.XYTipsWindow({
     		___title:"找回密码",
-			___content:"iframe:http://localhost:8080/XiaoneiXiangqin/findpwd/findpwd.jsp",
+			___content:"iframe:http://localhost:8084/XiaoneiXiangqin/findpwd/findpwd.jsp",
 			___width:"300",
 			___height:"250",
 			___showbg:true,
