@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -193,20 +194,59 @@
 						</li>
 					</ul>
 	            </div>
+	            <c:set var="detailInfo.marriageStatus" value="0"></c:set>
 				<div id="form1">
 					<ul  class="">
 						<li>
 							<span>基本资料</span>
 							<ul>
 								<li>昵称:${detailInfo.nickName}</li>
-    							<li>婚姻状态：${detailInfo.marriageStatus}</li>
-    							<li>我在寻找：${detailInfo.objectType}</li>
-    							<li>性别：${detailInfo.gender}</li>
+    							<li>婚姻状态：
+    								<c:choose>
+										<c:when test="${detailInfo.marriageStatus==0}">
+											<c:out value="未婚"></c:out>
+										</c:when>
+									</c:choose>
+    							</li>
+    							<li>我在寻找：
+									<c:if test="${detailInfo.objectType == 0}">
+										<c:out value="结婚对象"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.objectType == 1}">
+										恋人
+									</c:if>
+    							</li>
+    							<li>性别：
+    								<c:choose>
+    									<c:when test="${detailInfo.gender == 0}">
+    										<c:out value="男" />
+    									</c:when>
+    									<c:otherwise>
+    										<c:out value="女"></c:out>
+    									</c:otherwise>
+    								</c:choose>
+    							</li>
     							<li>年龄：${detailInfo.age}岁</li>
     							<li>身高：${detailInfo.height}cm</li>
     							<li>体重：${detailInfo.weight}kg</li>
 								<li>居住在：${detailInfo.liveLocation}</li>
-								<li>学历：${detailInfo.education}</li>
+								<li>学历：
+									<c:if test="${detailInfo.education == 0}">
+										<c:out value="大专以下"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.education == 1}">
+										<c:out value="大专"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.education == 2}">
+										<c:out value="本科"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.education == 3}">
+										<c:out value="硕士"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.education == 4}">
+										<c:out value="博士"></c:out>
+									</c:if>
+								</li>
 								<li>毕业院校：${detailInfo.graduateFrom}</li>
 								<li>行业：${detailInfo.industry}</li>
 								<li>工作单位：${detailInfo.company}</li>
@@ -218,16 +258,186 @@
 							<span>详细资料</span>
 							<ul>
 								<li>户口：${detailInfo.account}</li>
-								<li>住房情况：${detailInfo.housingCondition}</li>
-								<li>购车情况：${detailInfo.carCondition}</li>
+								<li>住房情况：
+									<c:if test="${detailInfo.housingCondition == 0}">
+										<c:out value="请选择"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.housingCondition == 1}">
+										<c:out value="已购房"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.housingCondition == 2}">
+										<c:out value="租房"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.housingCondition == 3}">
+										<c:out value="单位宿舍"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.housingCondition == 4}">
+										<c:out value="和家人同住"></c:out>
+									</c:if>
+								</li>
+								<li>购车情况：
+									<c:if test="${detailInfo.carCondition == 0}">
+										<c:out value="请选择"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.carCondition == 1}">
+										<c:out value="已购车"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.carCondition == 2}">
+										<c:out value="未购车"></c:out>
+									</c:if>
+								</li>
 								<li>民族：${detailInfo.ethnic}</li>
 								<li>籍贯：${detailInfo.birthLocation}</li>
-								<li>家中排行：${detailInfo.homeRanking}</li>
-								<li>有无子女：${detailInfo.haveChildren}</li>
-								<li>星座：${detailInfo.constellation}</li>
-								<li>血型：${detailInfo.bloodType}</li>
-								<li>属相：${detailInfo.zodiac}</li>
-								<li>宗教信仰：${detailInfo.religion}</li>
+								<li>家中排行：
+									<c:if test="${detailInfo.homeRanking == 0}">
+										<c:out value="独生子女"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.homeRanking == 1}">
+										<c:out value="老大"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.homeRanking == 2}">
+										<c:out value="老二"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.homeRanking == 3}">
+										<c:out value="老三及以后"></c:out>
+									</c:if>
+								</li>
+								<li>有无子女：
+									<c:if test="${detailInfo.haveChildren == 0}">
+										<c:out value="请选择"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.haveChildren == 1}">
+										<c:out value="小孩归自己"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.haveChildren == 2}">
+										<c:out value="小孩归对方"></c:out>
+									</c:if>
+								</li>
+								<li>星座：
+									<c:if test="${detailInfo.constellation == 0}">
+										<c:out value="请选择"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.constellation == 1}">
+										<c:out value="水瓶座"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.constellation == 2}">
+										<c:out value="双鱼座"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.constellation == 3}">
+										<c:out value="白羊座"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.constellation == 4}">
+										<c:out value="金牛座"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.constellation == 5}">
+										<c:out value="双子座"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.constellation == 6}">
+										<c:out value="巨蟹座"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.constellation == 7}">
+										<c:out value="狮子座"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.constellation == 8}">
+										<c:out value="处女座"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.constellation == 9}">
+										<c:out value="天秤座"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.constellation == 10}">
+										<c:out value="天蝎座"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.constellation == 11}">
+										<c:out value="射手座"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.constellation == 12}">
+										<c:out value="摩羯座"></c:out>
+									</c:if>
+								</li>
+								<li>血型：
+									<c:if test="${detailInfo.bloodType == 0}">
+										<c:out value="请选择"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.bloodType == 1}">
+										<c:out value="A型"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.bloodType == 2}">
+										<c:out value="B型"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.bloodType == 3}">
+										<c:out value="AB型"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.bloodType == 4}">
+										<c:out value="O型"></c:out>
+									</c:if>
+								</li>
+								<li>属相：
+									<c:if test="${detailInfo.zodiac == 0}">
+										<c:out value="鼠"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.zodiac == 1}">
+										<c:out value="牛"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.zodiac == 2}">
+										<c:out value="虎"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.zodiac == 3}">
+										<c:out value="兔"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.zodiac == 4}">
+										<c:out value="龙"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.zodiac == 5}">
+										<c:out value="蛇"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.zodiac == 6}">
+										<c:out value="马"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.zodiac == 7}">
+										<c:out value="羊"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.zodiac == 8}">
+										<c:out value="猴"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.zodiac == 9}">
+										<c:out value="鸡"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.zodiac == 10}">
+										<c:out value="狗"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.zodiac == 11}">
+										<c:out value="猪"></c:out>
+									</c:if>
+								</li>
+								<li>宗教信仰：
+									<c:if test="${detailInfo.religion == 0}">
+										<c:out value="请选择"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.religion == 1}">
+										<c:out value="无宗教信仰"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.religion == 2}">
+										<c:out value="佛教"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.religion == 3}">
+										<c:out value="道教"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.religion == 4}">
+										<c:out value="儒教"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.religion == 5}">
+										<c:out value="基督教"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.religion == 6}">
+										<c:out value="犹太教"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.religion == 7}">
+										<c:out value="伊斯兰教"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.religion == 8}">
+										<c:out value="其他教"></c:out>
+									</c:if>
+								</li>
 								<li>微博地址：${detailInfo.weiboURL}</li>
 								<li>豆瓣地址：${detailInfo.doubanURL}</li>
 							</ul>
