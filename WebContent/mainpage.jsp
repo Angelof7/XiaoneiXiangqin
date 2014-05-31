@@ -196,6 +196,7 @@
 	            </div>
 	            <c:set var="detailInfo.marriageStatus" value="0"></c:set>
 				<div id="form1">
+					<a href="">编辑资料</a>
 					<ul  class="">
 						<li>
 							<span>基本资料</span>
@@ -213,7 +214,13 @@
 										<c:out value="结婚对象"></c:out>
 									</c:if>
 									<c:if test="${detailInfo.objectType == 1}">
-										恋人
+										<c:out value="恋人"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.objectType == 2}">
+										<c:out value="普通朋友"></c:out>
+									</c:if>
+									<c:if test="${detailInfo.objectType == 3}">
+										<c:out value="知己"></c:out>
 									</c:if>
     							</li>
     							<li>性别：

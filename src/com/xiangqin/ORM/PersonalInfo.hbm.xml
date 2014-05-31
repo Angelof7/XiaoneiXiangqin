@@ -3,7 +3,7 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.xiangqin.ORM.DetailInfo" table="DetailInfo">
+	<class name="com.xiangqin.ORM.PersonalInfo" table="PersonalInfo">
 		<id name="id" column="Id" type="int">
 			<generator class="native" />
 		</id>
