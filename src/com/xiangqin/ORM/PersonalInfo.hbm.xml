@@ -28,7 +28,7 @@
 		<property name="ethnic" column="Ethnic" type="string" />
 		<property name="birthLocation" column="BirthLocation" type="string" />
 		<property name="homeRanking" column="HomeRanking" type="int" />
-		<property name="haveChildern" column="HaveChildern" type="int" />
+		<property name="haveChildren" column="HaveChildern" type="int" />
 		<property name="constellation" column="Constellation" type="string" />
 		<property name="bloodType" column="BloodType" type="int" />
 		<property name="zodiac" column="Zodiac" type="int" />

@@ -69,5 +69,10 @@
 			<result name="success">/findpwd/success.jsp</result>
 			<result name="erro">/findpwd/findpwd.jsp</result>
 		</action>
+		
+		<action name="modifyPersonalInfo" class="com.xiangqin.action.ModifyPersonalInfoAction">
+			<result name="REDIRECT">/modifyPersonalInfo.jsp</result>
+			<result name="SUCCESS">/mainpage.jsp</result>
+		</action>
 	</package>
 </struts>

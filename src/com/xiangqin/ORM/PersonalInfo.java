@@ -28,11 +28,11 @@ public class PersonalInfo {
 	//	毕业院校
 	private String graduateFrom;
 	//	行业
-	private String industry;
+	private int industry;
 	//	工作单位
 	private String company;
 	//	当前职位
-	private String currentJob;
+	private int currentJob;
 	//	0请选择；1 2000元以下   2 2000-4000  3 4000-6000 4 6000-10000  5  10000-15000  
 	//	6  15000-20000   7  20000以上
 	private int monthlyIncome;
@@ -49,9 +49,9 @@ public class PersonalInfo {
 	//	0独生子女；1老大；2老二；依次类推
 	private int homeRanking;
 	//  0请选择；1小孩归自己；2小孩归对方
-	private int haveChildern;
+	private int haveChildren;
 	//	星座
-	private String constellation;
+	private int constellation;
 	//	0请选择；1 A型；2 B型；3 AB型；4 O型
 	private int bloodType;
 	//  0 鼠；1牛；2虎；3兔；4龙；5蛇；6马；7羊；8猴；9鸡；10狗；11猪
@@ -136,10 +136,10 @@ public class PersonalInfo {
 	public void setGraduateFrom(String graduateFrom) {
 		this.graduateFrom = graduateFrom;
 	}
-	public String getIndustry() {
+	public int getIndustry() {
 		return industry;
 	}
-	public void setIndustry(String industry) {
+	public void setIndustry(int industry) {
 		this.industry = industry;
 	}
 	public String getCompany() {
@@ -148,10 +148,10 @@ public class PersonalInfo {
 	public void setCompany(String company) {
 		this.company = company;
 	}
-	public String getCurrentJob() {
+	public int getCurrentJob() {
 		return currentJob;
 	}
-	public void setCurrentJob(String currentJob) {
+	public void setCurrentJob(int currentJob) {
 		this.currentJob = currentJob;
 	}
 	public int getMonthlyIncome() {
@@ -196,16 +196,16 @@ public class PersonalInfo {
 	public void setHomeRanking(int homeRanking) {
 		this.homeRanking = homeRanking;
 	}
-	public int getHaveChildern() {
-		return haveChildern;
+	public int getHaveChildren() {
+		return haveChildren;
 	}
-	public void setHaveChildern(int haveChildern) {
-		this.haveChildern = haveChildern;
+	public void setHaveChildren(int haveChildren) {
+		this.haveChildren = haveChildren;
 	}
-	public String getConstellation() {
+	public int getConstellation() {
 		return constellation;
 	}
-	public void setConstellation(String constellation) {
+	public void setConstellation(int constellation) {
 		this.constellation = constellation;
 	}
 	public int getBloodType() {

@@ -94,7 +94,7 @@ public class LoginAction extends ActionSupport {
 
 		if (user.getPassword().equals(EncrypMD5.eccrypt(password))) {
 			session.setAttribute("user", user);
-			session.setAttribute("detaiInfo", getPersonalInfo(user));
+			session.setAttribute("personalInfo", getPersonalInfo(user));
 			return SUCCESS;
 		} else {
 			msg = "密码错误";
@@ -103,7 +103,7 @@ public class LoginAction extends ActionSupport {
 	}
 	
 	private PersonalInfo getPersonalInfo(User user){
-		PersonalInfoService diService = new PersonalInfoServiceImpl();
-		return diService.getPersonalInfoByUserId(user.getId());
+		PersonalInfoService piService = new PersonalInfoServiceImpl();
+		return piService.getPersonalInfoByUserId(user.getId());
 	}
 }
