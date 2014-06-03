@@ -69,19 +69,19 @@
 			</tr>
 			<tr>
 				<td><label for="">年龄：</label></td>
-				<td><input type="text" name="age" value="" /></td>
+				<td><input type="text" name="age" value="<%= pi.getAge() %>" /></td>
 			</tr>
 			<tr>
 				<td><label for="">身高(cm)：</label></td>
-				<td><input type="text" name="height" value="" /></td>
+				<td><input type="text" name="height" value="<%= pi.getHeight() %>" /></td>
 			</tr>
 			<tr>
 				<td><label for="">体重(kg)：</label></td>
-				<td><input type="text" name="weight" value="" /></td>
+				<td><input type="text" name="weight" value="<%= pi.getWeight() %>" /></td>
 			</tr>
 			<tr>
 				<td><label for="">居住在：</label></td>
-				<td><input type="text" name="liveLocation" value="" /></td>
+				<td><input type="text" name="liveLocation" value="<%= pi.getLiveLocation() %>" /></td>
 			</tr>
 			<tr>
 				<td><label for="">学历：</label></td>
@@ -97,7 +97,7 @@
 			</tr>
 			<tr>
 				<td><label for="">毕业院校：</label></td>
-				<td><input type="text" name="graduateFrom" value="" /></td>
+				<td><input type="text" name="graduateFrom" value="<%= pi.getGraduateFrom() %>" /></td>
 			</tr>
 			<tr>
 				<td><label for="">行业：</label></td>
@@ -127,7 +127,7 @@
 			</tr>
 			<tr>
 				<td><label for="">工作单位：</label></td>
-				<td><input type="text" name="company" value="" /></td>
+				<td><input type="text" name="company" value="<%= pi.getCompany() %>" /></td>
 			</tr>
 			<tr>
 				<td><label for="">目前职位：</label></td>
@@ -156,7 +156,7 @@
 			</tr>
 			<tr>
 				<td><label for="">户口：</label></td>
-				<td><input type="text" name="account" value="" /></td>
+				<td><input type="text" name="account" value="<%= pi.getAccount() %>" /></td>
 			</tr>
 			<tr>
 				<td><label for="">住房情况：</label></td>
@@ -182,11 +182,11 @@
 			</tr>
 			<tr>
 				<td><label for="">民族：</label></td>
-				<td><input type="text" name="ethnic" value="" /></td>
+				<td><input type="text" name="ethnic" value="<%= pi.getEthnic() %>" /></td>
 			</tr>
 			<tr>
 				<td><label for="">籍贯：</label></td>
-				<td><input type="text" name="weiboURL" value="" /></td>
+				<td><input type="text" name="weiboURL" value="<%= pi.getBirthLocation() %>" /></td>
 			</tr>
 			<tr>
 				<td><label for="">家中排行：</label></td>
@@ -279,11 +279,11 @@
 			</tr>
 			<tr>
 				<td><label for="">微博地址：</label></td>
-				<td><input type="text" name="weiboURL" value="" /></td>
+				<td><input type="text" name="weiboURL" value="<%= pi.getWeiboURL() %>" /></td>
 			</tr>
 			<tr>
 				<td><label for="">豆瓣地址：</label></td>
-				<td><input type="text" name="doubanURL" value="" /></td>
+				<td><input type="text" name="doubanURL" value="<%= pi.getDoubanURL() %>" /></td>
 			</tr>
 		</table>
 	</form>
