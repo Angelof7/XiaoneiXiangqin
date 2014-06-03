@@ -9,7 +9,7 @@
 		</id>
 		<property name="userId" column="UserId" type="string" />
 		<property name="nickName" column="Nickname" type="string" />
-		<property name="marriageStatus" column="MarriageStatus" type="string" />
+		<property name="marriageStatus" column="MarriageStatus" type="int" />
 		<property name="objectType" column="ObjectType" type="int" />
 		<property name="gender" column="Gender" type="int" />
 		<property name="age" column="Age" type="int" />
@@ -18,9 +18,9 @@
 		<property name="liveLocation" column="LiveLocation" type="string" />
 		<property name="education" column="Education" type="int" />
 		<property name="graduateFrom" column="GraduateFrom" type="string" />
-		<property name="industry" column="Industry" type="string" />
+		<property name="industry" column="Industry" type="int" />
 		<property name="company" column="Company" type="string" />
-		<property name="currentJob" column="CurrentJob" type="string" />
+		<property name="currentJob" column="CurrentJob" type="int" />
 		<property name="monthlyIncome" column="MonthlyIncome" type="int" />
 		<property name="account" column="Account" type="string" />
 		<property name="housingCondition" column="HousingCondition" type="int" />
@@ -29,7 +29,7 @@
 		<property name="birthLocation" column="BirthLocation" type="string" />
 		<property name="homeRanking" column="HomeRanking" type="int" />
 		<property name="haveChildren" column="HaveChildren" type="int" />
-		<property name="constellation" column="Constellation" type="string" />
+		<property name="constellation" column="Constellation" type="int" />
 		<property name="bloodType" column="BloodType" type="int" />
 		<property name="zodiac" column="Zodiac" type="int" />
 		<property name="religion" column="Religion" type="int" />
