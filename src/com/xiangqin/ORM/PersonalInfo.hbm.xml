@@ -7,10 +7,10 @@
 		<id name="id" column="Id" type="int">
 			<generator class="native" />
 		</id>
-		<property name="userId" column="display_name" type="string" />
-		<property name="nickName" column="email" type="string" />
-		<property name="marriageStatus" column="password" type="string" />
-		<property name="objectType" column="firstlogin" type="int" />
+		<property name="userId" column="UserId" type="string" />
+		<property name="nickName" column="Nickname" type="string" />
+		<property name="marriageStatus" column="MarriageStatus" type="string" />
+		<property name="objectType" column="ObjectType" type="int" />
 		<property name="gender" column="Gender" type="int" />
 		<property name="age" column="Age" type="int" />
 		<property name="height" column="Height" type="int" />
@@ -28,7 +28,7 @@
 		<property name="ethnic" column="Ethnic" type="string" />
 		<property name="birthLocation" column="BirthLocation" type="string" />
 		<property name="homeRanking" column="HomeRanking" type="int" />
-		<property name="haveChildren" column="HaveChildern" type="int" />
+		<property name="haveChildren" column="HaveChildren" type="int" />
 		<property name="constellation" column="Constellation" type="string" />
 		<property name="bloodType" column="BloodType" type="int" />
 		<property name="zodiac" column="Zodiac" type="int" />
