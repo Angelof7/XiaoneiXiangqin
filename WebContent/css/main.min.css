@@ -6501,13 +6501,11 @@ a.link-sd,a.link-sd:hover,.link-sd a,.link-sd a:hover {
 	position: absolute;
 	top: 6px;
 }
-/*花田logo部分*/
+
 .header-logo a {
-	background: transparent
-		url('http://img2.cache.netease.com/love/image/logo/logo.png')
-		no-repeat top left;
+	background: transparent url('../img/logo.png') no-repeat top left;
 	_background: none;
-	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img2.cache.netease.com/love/image/logo/logo.png',
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/logo.png',
 		sizingMethod='crop');
 	display: block;
 	height: 38px;
@@ -10826,3 +10824,17 @@ transform
 .ui-scrollbar::-webkit-scrollbar-thumb:active {
 	background: rgba(0, 0, 0, 0.6);
 }
+
+
+
+
+.tabBar { margin: 0; padding: 0; }
+	.tab { display: inline-block; zoom:1; *display:inline; background: #eee; border: solid 0px #999; border-bottom: none; -moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; }
+	.tab a { font-size: 14px; line-height: 2em; display: block; padding: 0 10px; outline: none; }
+	.tab a:hover { text-decoration: underline; }
+	.tab.active { padding-top: 6px; position: relative; top: 1px; border-color: #666; }
+	.tab a.active { font-weight: bold; }
+	.tab-container .panel-container { background: #fff; border: solid #666 0px; padding: 10px; -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; }
+	.panel-container { margin-bottom: 10px; }
+.tab-container{width:75%;float:left;}
+.right{border:0px solid #999;margin-left:5px;background:#fff;float:right;width:24%;}
