@@ -95,11 +95,16 @@ public class LoginAction extends ActionSupport {
 		if (user.getPassword().equals(EncrypMD5.eccrypt(password))) {
 			session.setAttribute("user", user);
 			session.setAttribute("personalInfo", getPersonalInfo(user));
-			return SUCCESS;
+			if(user.getFirstlogin()==1){
+				return INPUT;
+			}else{
+				return SUCCESS;
+			}
 		} else {
 			msg = "密码错误";
 			return ERROR;
 		}
+		
 	}
 	
 	private PersonalInfo getPersonalInfo(User user){
