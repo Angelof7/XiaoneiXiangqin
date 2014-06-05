@@ -1,6 +1,7 @@
 package com.xiangqin.action;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
 
 import javax.mail.MessagingException;
@@ -13,6 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.xiangqin.ORM.User;
 import com.xiangqin.service.impl.UserServiceImpl;
 import com.xiangqin.util.EmailAuthentication;
+import com.xiangqin.util.EncrypMD5;
 import com.xiangqin.util.VerificationId;
 
 @SuppressWarnings("serial")
@@ -23,7 +25,7 @@ public class RegisterAction extends ActionSupport {
     private String checkcode;
 
 
-	public String register() throws MessagingException, IOException{
+	public String register() throws MessagingException, IOException, NoSuchAlgorithmException{
     	User user = null;
     	UserServiceImpl usi = new UserServiceImpl();
     	HttpServletRequest request = ServletActionContext.getRequest();
@@ -54,10 +56,10 @@ public class RegisterAction extends ActionSupport {
     			if(ea.sendMail()){
     				User createUser = new User();
     				createUser.setId(this.studentCard);
-    				createUser.setPassword(ea.getCreatePassword());
+    				createUser.setPassword(EncrypMD5.eccrypt(ea.getCreatePassword()));
     				createUser.setEmail(this.studentCard+"@smail.nju.edu.cn");
                     createUser.setFirstlogin(1);
-                    createUser.setUsername("chenquan");
+                    //createUser.setUsername("chenquan");
     				usi.saveUser(createUser);
     				return "success";
     			}else{

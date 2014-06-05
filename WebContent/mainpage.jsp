@@ -57,7 +57,7 @@
 			<div class="profile-basic-avatar">
 				<div class="profile-basic-avatar-imgBox  profile-basic-avatar-mine">
 					<a href="/settings/face"> 
-					<img src="#" alt="头像"/>
+					<img src="upload/avatar/${user.getUsername() }_162.jpg" alt="头像"/>
 					</a>
 					<div class="profile-basic-avatar-update">
 						<i></i> <a href="updateface.jsp">点击修改头像</a>

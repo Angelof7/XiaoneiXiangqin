@@ -70,44 +70,49 @@
                </div>
             </div>
             <div id="avatarUpload" style="position: relative;">
-              <div class="js-normal">
-            	<div class="uploadAvatar-commonBox">
-            		<div class="uploadAvatar-common-avatar">
-            			<img class="js-avatar" src="http://imgsize.ph.126.net/?imgurl=http://img1.cache.netease.com/love/image/common/avatar/default_male_big.png_250x250x1x85.jpg">
-            				<i class="uploadAvatar-image-middle">
-            				</i>
-            			    <div class="loadingBox loadingBox-s js-state">
-            			    </div>
-            	    </div>
-            	    <div class="uploadAvatar-common-again">
-            	    <a class="link-lightBlue uploadAgain-trigger" href="javascript:;">重新上传</a>
-                </div>
-                <div class="uploadAvatar-btn n-btn-box">
-                	<div class="disabled">
-                		<a class="btnB btn-red n-btn-sure submit-trigger" id="btn-commit" href="javascript:;">提交，完成</a>
-                	</div>
-               </div>
-             </div>
-           </div>
-           <div class="uploadAvatar-flash avatarCropper-big js-advanced">
- 	          <object type="application/x-shockwave-flash" data="http://static.t.126.net/frontend/flash/avatar/avatarCropperB_131210.swf" width="525" height="467" id="5de0" style="visibility: visible;">
- 				<param name="flashvars" value="saveUrl=http://love.163.com/upload&amp;maxSize=8388608&amp;minSize=10240&amp;errAnalyse=true&amp;keyfrom=pS_face&amp;urlPic=http%3A%2F%2Fimgsize.ph.126.net%2F%3Fimgurl%3Dhttp%3A%2F%2Fimg1.cache.netease.com%2Flove%2Fimage%2Fcommon%2Favatar%2Fdefault_male_big.png_250x250x1x85.jpg&amp;saveBtnText=%E6%8F%90%E4%BA%A4%EF%BC%8C%E5%AE%8C%E6%88%90">
- 				<param name="allowScriptAccess" value="always">
- 				<param name="wmode" value="transparent">
- 			  </object>
-           </div>
-               <div class="uploadAvatar-state" style="bottom: 8px;"><span class="text-icon-tips hidden js-errorTips"></span></div>
+	           <div class="uploadAvatar-flash avatarCropper-big js-advanced">
+				 <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+					codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"
+					WIDTH="650" HEIGHT="450" id="myMovieName">
+					<PARAM NAME=movie VALUE="swf/avatar.swf">
+					<PARAM NAME=quality VALUE=high>
+					<PARAM NAME=bgcolor VALUE=#FFFFFF>
+					<param name="flashvars" value="imgUrl=img/default.jpg&uploadUrl=upfile.jsp&uploadSrc=false" />
+					<EMBED src="swf/avatar.swf" quality=high bgcolor=#FFFFFF WIDTH="650" HEIGHT="450" wmode="transparent" flashVars="imgUrl=img/default.jpg&uploadUrl=upfile.jsp&uploadSrc=false"
+					NAME="myMovieName" ALIGN="" TYPE="application/x-shockwave-flash" allowScriptAccess="always"
+					PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
+					</EMBED>
+				  </OBJECT>
+	           </div>
+	           <div id="avatar_priview"></div>
             </div>
+			 <script type="text/javascript" language="javascript">
+				   function uploadevent(status,picUrl,callbackdata){
+				  //alert(picUrl); //后端存储图片
+				//	alert(callbackdata);
+				        status += '';
+				     switch(status){
+				     case '1':
+						var time = new Date().getTime();
+						var filename162 = picUrl+'_162.jpg';
+						var filename48 = picUrl+'_48.jpg';
+						var filename20 = picUrl+"_20.jpg";
+				
+						document.getElementById('avatar_priview').innerHTML = "头像1 : <img src='"+filename162+"?" + time + "'/> <br/> 头像2: <img src='"+filename48+"?" + time + "'/><br/> 头像3: <img src='"+filename20+"?" + time + "'/>" ;
+						
+					break;
+				     case '-1':
+					  window.location.reload();
+				     break;
+				     default:
+				     window.location.reload();
+				    } 
+				   }
+			</script>
          </div>
       </div>
    </div>
 </div>
-
-   
-<script type="text/javascript" language="javascript">
-(function(){_ntes_nacc="love";var a=document.createElement("script");a.type="text/javascript",a.readyState?a.onreadystatechange=function(){("loaded"===a.readyState||"complete"===a.readyState)&&(a.onreadystatechange=null,neteaseTracker(),neteaseClickStat())}:a.onload=function(){neteaseTracker(),neteaseClickStat(),a.onload=null},a.src="http://analytics.163.com/ntes.js",document.getElementsByTagName("head")[0].appendChild(a)})();
-var _gaq=_gaq||[];_gaq.push(["_setAccount","UA1373358407458"],["_setLocalGifPath","/UA1373358407458/__utm.gif"],["_setLocalServerMode"]),_gaq.push(["_trackPageview"]),function(){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src="http://wr.da.netease.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}();
-</script>  
     <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
