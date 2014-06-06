@@ -12,10 +12,15 @@ import com.xiangqin.DAO.impl.PersonalInfoDAOImpl;
 import com.xiangqin.DAO.impl.UserDAOImpl;
 import com.xiangqin.ORM.PersonalInfo;
 import com.xiangqin.ORM.User;
+import com.xiangqin.service.PersonalInfoService;
+import com.xiangqin.service.impl.PersonalInfoServiceImpl;
 
+public class ProfileAction extends ActionSupport {
 
-public class ProfileAction  extends ActionSupport{
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 
 	 */
@@ -26,94 +31,64 @@ public class ProfileAction  extends ActionSupport{
 	private int education;
 	private String livelocation;
 	private int salary;
-	
-	
 
 	public String getNickname() {
 		return nickname;
 	}
 
-
-
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-
-
 
 	public int getSex() {
 		return sex;
 	}
 
-
-
 	public void setSex(int sex) {
 		this.sex = sex;
 	}
-
-
 
 	public int getAge() {
 		return age;
 	}
 
-
-
 	public void setAge(int age) {
 		this.age = age;
 	}
-
-
 
 	public int getHeight() {
 		return height;
 	}
 
-
-
 	public void setHeight(int height) {
 		this.height = height;
 	}
-
-
 
 	public int getEducation() {
 		return education;
 	}
 
-
-
 	public void setEducation(int education) {
 		this.education = education;
 	}
-
-
 
 	public String getLivelocation() {
 		return livelocation;
 	}
 
-
-
 	public void setLivelocation(String livelocation) {
 		this.livelocation = livelocation;
 	}
-
-
 
 	public int getSalary() {
 		return salary;
 	}
 
-
-
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
 
-
-
-	public String profile(){
+	public String profile() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession(true);
 		User user = (User) session.getAttribute("user");
@@ -131,11 +106,13 @@ public class ProfileAction  extends ActionSupport{
 		userdao.updateUser(user);
 		PersonalInfoDAO pi = new PersonalInfoDAOImpl();
 		pi.savetPersonalInfo(personalinfo);
+		session.setAttribute("personalInfo", getPersonalInfo(user));
 		return SUCCESS;
 	}
-
-
-
-
 	
+	private PersonalInfo getPersonalInfo(User user) {
+		PersonalInfoService piService = new PersonalInfoServiceImpl();
+		return piService.getPersonalInfoByUserId(user.getId());
+	}
+
 }

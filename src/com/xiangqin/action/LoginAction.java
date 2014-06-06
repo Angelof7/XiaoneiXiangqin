@@ -94,20 +94,20 @@ public class LoginAction extends ActionSupport {
 
 		if (user.getPassword().equals(EncrypMD5.eccrypt(password))) {
 			session.setAttribute("user", user);
-			session.setAttribute("personalInfo", getPersonalInfo(user));
-			if(user.getFirstlogin()==1){
+			if (user.getFirstlogin() == 1) {
 				return INPUT;
-			}else{
+			} else {
+				session.setAttribute("personalInfo", getPersonalInfo(user));
 				return SUCCESS;
 			}
 		} else {
 			msg = "密码错误";
 			return ERROR;
 		}
-		
+
 	}
-	
-	private PersonalInfo getPersonalInfo(User user){
+
+	private PersonalInfo getPersonalInfo(User user) {
 		PersonalInfoService piService = new PersonalInfoServiceImpl();
 		return piService.getPersonalInfoByUserId(user.getId());
 	}
