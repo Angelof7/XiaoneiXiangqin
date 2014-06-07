@@ -67,175 +67,233 @@ public class PersonalInfo {
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getUserId() {
 		return userId;
 	}
+	
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+	
 	public String getNickName() {
 		return nickName;
 	}
+	
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
 	}
+	
 	public int getMarriageStatus() {
 		return MarriageStatus;
 	}
+	
 	public void setMarriageStatus(int marriageStatus) {
 		MarriageStatus = marriageStatus;
 	}
+	
 	public int getObjectType() {
 		return ObjectType;
 	}
+	
 	public void setObjectType(int objectType) {
 		ObjectType = objectType;
 	}
+	
 	public int getGender() {
 		return gender;
 	}
+	
 	public void setGender(int gender) {
 		this.gender = gender;
 	}
+	
 	public int getAge() {
 		return age;
 	}
+	
 	public void setAge(int age) {
 		this.age = age;
 	}
+	
 	public int getHeight() {
 		return height;
 	}
+	
 	public void setHeight(int height) {
 		this.height = height;
 	}
+	
 	public int getWeight() {
 		return weight;
 	}
+	
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
+	
 	public String getLiveLocation() {
 		return liveLocation;
 	}
+	
 	public void setLiveLocation(String liveLocation) {
 		this.liveLocation = liveLocation;
 	}
+	
 	public int getEducation() {
 		return education;
 	}
+	
 	public void setEducation(int education) {
 		this.education = education;
 	}
+	
 	public String getGraduateFrom() {
 		return graduateFrom;
 	}
+	
 	public void setGraduateFrom(String graduateFrom) {
 		this.graduateFrom = graduateFrom;
 	}
+	
 	public int getIndustry() {
 		return industry;
 	}
+	
 	public void setIndustry(int industry) {
 		this.industry = industry;
 	}
+	
 	public String getCompany() {
 		return company;
 	}
+	
 	public void setCompany(String company) {
 		this.company = company;
 	}
+	
 	public int getCurrentJob() {
 		return currentJob;
 	}
+	
 	public void setCurrentJob(int currentJob) {
 		this.currentJob = currentJob;
 	}
+	
 	public int getMonthlyIncome() {
 		return monthlyIncome;
 	}
+	
 	public void setMonthlyIncome(int monthlyIncome) {
 		this.monthlyIncome = monthlyIncome;
 	}
+	
 	public String getAccount() {
 		return account;
 	}
+	
 	public void setAccount(String account) {
 		this.account = account;
 	}
+	
 	public int getHousingCondition() {
 		return housingCondition;
 	}
+	
 	public void setHousingCondition(int housingCondition) {
 		this.housingCondition = housingCondition;
 	}
+	
 	public int getCarCondition() {
 		return carCondition;
 	}
+	
 	public void setCarCondition(int carCondition) {
 		this.carCondition = carCondition;
 	}
+	
 	public String getEthnic() {
 		return ethnic;
 	}
+	
 	public void setEthnic(String ethnic) {
 		this.ethnic = ethnic;
 	}
+	
 	public String getBirthLocation() {
 		return birthLocation;
 	}
+	
 	public void setBirthLocation(String birthLocation) {
 		this.birthLocation = birthLocation;
 	}
+	
 	public int getHomeRanking() {
 		return homeRanking;
 	}
+	
 	public void setHomeRanking(int homeRanking) {
 		this.homeRanking = homeRanking;
 	}
+	
 	public int getHaveChildren() {
 		return haveChildren;
 	}
+	
 	public void setHaveChildren(int haveChildren) {
 		this.haveChildren = haveChildren;
 	}
+	
 	public int getConstellation() {
 		return constellation;
 	}
+	
 	public void setConstellation(int constellation) {
 		this.constellation = constellation;
 	}
+	
 	public int getBloodType() {
 		return bloodType;
 	}
+	
 	public void setBloodType(int bloodType) {
 		this.bloodType = bloodType;
 	}
+	
 	public int getZodiac() {
 		return zodiac;
 	}
+	
 	public void setZodiac(int zodiac) {
 		this.zodiac = zodiac;
 	}
+	
 	public int getReligion() {
 		return religion;
 	}
+	
 	public void setReligion(int religion) {
 		this.religion = religion;
 	}
+	
 	public String getWeiboURL() {
 		return weiboURL;
 	}
+	
 	public void setWeiboURL(String weiboURL) {
 		this.weiboURL = weiboURL;
 	}
+	
 	public String getDoubanURL() {
 		return doubanURL;
 	}
+	
 	public void setDoubanURL(String doubanURL) {
 		this.doubanURL = doubanURL;
 	}
+	
 }

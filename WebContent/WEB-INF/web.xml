@@ -3,6 +3,16 @@
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_9" version="2.5">
+
+	<filter>
+		<filter-name>hasPersonalInfo</filter-name>
+		<filter-class>com.xiangqin.filter.HasPersonalInfoFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>hasPersonalInfo</filter-name>
+		<url-pattern>/modifyPersonalInfo.jsp</url-pattern>
+	</filter-mapping>
+
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
