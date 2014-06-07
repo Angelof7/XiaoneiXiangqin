@@ -109,7 +109,7 @@ public class ProfileAction extends ActionSupport {
 		session.setAttribute("personalInfo", getPersonalInfo(user));
 		return SUCCESS;
 	}
-	
+
 	private PersonalInfo getPersonalInfo(User user) {
 		PersonalInfoService piService = new PersonalInfoServiceImpl();
 		return piService.getPersonalInfoByUserId(user.getId());
