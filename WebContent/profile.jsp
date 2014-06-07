@@ -212,8 +212,8 @@ function checklocation(name){
             <label class="form-label"><span class="form-need">*</span><span class="label-justify-text2">性别</span>：</label>
             <div class="form-control">
                <div class="form-radioGroup">
-                  <label class="form-radio"><input name="sex" id="mgender" type="radio" value="1"  /><span class="form-radio-label">男</span></label>
-                  <label class="form-radio"><input name="sex" id="wgender" type="radio" value="2"  /><span class="form-radio-label">女</span></label>
+                  <label class="form-radio"><input name="sex" id="mgender" type="radio" value="0"  /><span class="form-radio-label">男</span></label>
+                  <label class="form-radio"><input name="sex" id="wgender" type="radio" value="1"  /><span class="form-radio-label">女</span></label>
                </div>
             </div>
             <div class="form-tips">
