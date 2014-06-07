@@ -196,7 +196,7 @@
 	            </div>
 	            <c:set var="personalInfo.marriageStatus" value="0"></c:set>
 				<div id="form1">
-					<a href="">编辑资料</a>
+					<a href="modifyPersonalInfo.jsp">编辑资料</a>
 					<ul  class="">
 						<li>
 							<span>基本资料</span>
