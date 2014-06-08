@@ -54,7 +54,7 @@ public class PersonalInfo {
 	private int constellation;
 	//	0请选择；1 A型；2 B型；3 AB型；4 O型
 	private int bloodType;
-	//  0 鼠；1牛；2虎；3兔；4龙；5蛇；6马；7羊；8猴；9鸡；10狗；11猪
+	//  0请选择；1 鼠；2牛；3虎；4兔；5龙；6蛇；7马；8羊；9猴；10鸡；11狗；12猪
 	private int zodiac;
 	//	0请选择；1 无宗教信仰；2 佛教；3道教；4儒教；5基督教；6犹太教；7伊斯兰教；8其他教
 	private int religion;

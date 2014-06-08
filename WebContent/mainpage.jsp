@@ -481,29 +481,44 @@
 										<c:out value="O型"></c:out>
 									</c:if>
 								</li>
-								<li>属相： <c:if test="${personalInfo.zodiac == 0}">
+								<li>属相： 
+									<c:if test="${personalInfo.zodiac == 0}">
+										<c:out value="请选择"></c:out>
+									</c:if> 
+									<c:if test="${personalInfo.zodiac == 1}">
 										<c:out value="鼠"></c:out>
-									</c:if> <c:if test="${personalInfo.zodiac == 1}">
+									</c:if> 
+									<c:if test="${personalInfo.zodiac == 2}">
 										<c:out value="牛"></c:out>
-									</c:if> <c:if test="${personalInfo.zodiac == 2}">
+									</c:if> 
+									<c:if test="${personalInfo.zodiac == 3}">
 										<c:out value="虎"></c:out>
-									</c:if> <c:if test="${personalInfo.zodiac == 3}">
+									</c:if> 
+									<c:if test="${personalInfo.zodiac == 4}">
 										<c:out value="兔"></c:out>
-									</c:if> <c:if test="${personalInfo.zodiac == 4}">
+									</c:if> 
+									<c:if test="${personalInfo.zodiac == 5}">
 										<c:out value="龙"></c:out>
-									</c:if> <c:if test="${personalInfo.zodiac == 5}">
+									</c:if> 
+									<c:if test="${personalInfo.zodiac == 6}">
 										<c:out value="蛇"></c:out>
-									</c:if> <c:if test="${personalInfo.zodiac == 6}">
+									</c:if> 
+									<c:if test="${personalInfo.zodiac == 7}">
 										<c:out value="马"></c:out>
-									</c:if> <c:if test="${personalInfo.zodiac == 7}">
+									</c:if> 
+									<c:if test="${personalInfo.zodiac == 8}">
 										<c:out value="羊"></c:out>
-									</c:if> <c:if test="${personalInfo.zodiac == 8}">
+									</c:if> 
+									<c:if test="${personalInfo.zodiac == 9}">
 										<c:out value="猴"></c:out>
-									</c:if> <c:if test="${personalInfo.zodiac == 9}">
+									</c:if> 
+									<c:if test="${personalInfo.zodiac == 10}">
 										<c:out value="鸡"></c:out>
-									</c:if> <c:if test="${personalInfo.zodiac == 10}">
+									</c:if> 
+									<c:if test="${personalInfo.zodiac == 11}">
 										<c:out value="狗"></c:out>
-									</c:if> <c:if test="${personalInfo.zodiac == 11}">
+									</c:if> 
+									<c:if test="${personalInfo.zodiac == 12}">
 										<c:out value="猪"></c:out>
 									</c:if>
 								</li>

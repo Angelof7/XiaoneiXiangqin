@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.xiangqin.ORM.PersonalInfo" %>
 <%@ page import="java.util.*" %>
+<%
+	PersonalInfo pi = (PersonalInfo)session.getAttribute("personalInfo");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -252,17 +255,13 @@ body {
 		}
 	}
 </script>
-<%
-	PersonalInfo pi = (PersonalInfo)session.getAttribute("personalInfo");
-%>
-
 </head>
 <body class="pSignup" data-log="pSignup">
-	<form action="profile">
+	<form action="modifyPersonalInfo" method="POST">
 		<header class="header">
 			<div class="header-inner">
 				<h1 class="header-logo">
-					<a href="/">花田_南大唯一免费的大型婚恋交友社区</a>
+					<a href="/XiaoneiXiangqin">花田_南大唯一免费的大型婚恋交友社区</a>
 				</h1>
 				<div class="header-title">修改个人资料</div>
 			</div>
@@ -282,68 +281,59 @@ body {
 			</div>
 			<div class="mainBox">
 				<div id="regOptions" class="form-group signup-group">
+					
 					<div class="form-row js-row">
-						<label class="form-label"><span class="form-need">*</span><span
-							class="label-justify-text2">昵称</span>：</label>
+						<label class="form-label"><span
+							class="label-justify-text2">昵称</span></label>
 						<div class="form-control">
 							<div class="form-input-wrapper">
 								<label class="form-input-label text-gray js-nickNameLabel" style="display: none;">限12个汉字或24个英文字母</label>
 								<input class="form-input js-nickName" name="nickname" id="nickName" type="text" onchange=changeName() onblur="checkBlur(this.id)" value="<%= pi.getNickName()==null ? "" : pi.getNickName() %>" />
-								<span></span>
 							</div>
 						</div>
 						<div class="form-tips">
 							<span data-helptip="限12个汉字或24英文字母" class="text-icon-tips js-tips"></span>
 						</div>
 					</div>
+					
 					<div class="form-row js-row">
-						<label class="form-label"><span class="form-need">*</span><span
-							class="label-justify-text2">性别</span>：</label>
+						<label class="form-label">
+							<span class="label-justify-text2">性别</span>
+						</label>
 						<div class="form-control">
-							<div class="form-radioGroup">
-								<label class="form-radio"><input name="sex" id="mgender"						type="radio" value="1" /><span class="form-radio-label">男</span></label>
-								<label class="form-radio"><input name="sex" id="wgender"
-									type="radio" value="2" /><span class="form-radio-label">女</span></label>
-							</div>
-						</div>
-						<div class="form-tips">
-							<span class="text-icon-tips js-tips hidden"></span>
+							<select class="form-select" name="gender" id="gender">
+								<option value="0">男</option>
+								<option value="1">女</option>
+							</select>
 						</div>
 					</div>
 					<div class="form-row signup-basicInfo-birthday js-row">
-						<label class="form-label"><span class="form-need">*</span><span
-							class="label-justify-text2">年龄</span>：</label>
+						<label class="form-label">
+							<span class="label-justify-text2">年龄</span>
+						</label>
 						<div class="form-control">
-							<!-- <input class="form-input js-nickName" id="datepicker" type="text"  />-->
-							<input class="form-input js-nickName" name="age" id="age"
-								type="text" onblur="checklocation(this.id)" /><span></span>
-						</div>
-						<script type="text/javascript">
-							var selYear = window.document
-									.getElementById("selYear");
-							var selMonth = window.document
-									.getElementById("selMonth");
-							var selDay = window.document
-									.getElementById("selDay");
-							new DateSelector(selYear, selMonth, selDay, 2004,
-									2, 29);
-						</script>
-						<div class="form-tips">
-							<span data-errortips="请选择您的生日" class="text-icon-tips js-tips hidden"></span>
+							<input class="form-input js-nickName" name="age" id="age" type="text" />
 						</div>
 					</div>
+					
 					<div class="form-row js-row">
-						<label class="form-label"><span class="form-need">*</span><span
-							class="label-justify-text2">身高</span>：</label>
+						<label class="form-label">
+							<span class="label-justify-text4">身高 cm</span>
+						</label>
 						<div class="form-control">
-							<select class="form-select js-height js-needTips" name="height"
-								id="height" onblur="checkBlur(this.id)"
-								onchange="checkBlur(this.id)"></select><span></span>
-						</div>
-						<div class="form-tips">
-							<span data-errortips="请选择您的身高" class="text-icon-tips js-tips hidden"></span>
+							<input type="text" class="form-input" name="height" id="height" value="<%=pi.getHeight()%>" />
 						</div>
 					</div>
+					
+					<div class="form-row js-row">
+						<label class="form-label">
+							<span class="label-justify-text4">体重 kg</span>
+						</label>
+						<div class="form-control">
+							<input type="text" class="form-input" name="weight" id="weight" value="<%=pi.getWeight()%>" />
+						</div>
+					</div>
+					
 					<div class="form-row js-row">
 						<label class="form-label"><span class="form-need">*</span><span
 							class="label-justify-text2">学历</span>：</label>
@@ -361,18 +351,15 @@ body {
 								class="text-icon-tips js-tips hidden"></span>
 						</div>
 					</div>
+					
 					<div class="form-row signup-basicInfo-city js-row">
 						<label class="form-label"><span class="form-need">*</span><span
 							class="label-justify-text3">居住地</span>：</label>
 						<div class="form-control">
-							<input class="form-input js-nickName" name="livelocation"
-								id="livelocation" type="text" onblur="checklocation(this.id)" /><span></span>
-						</div>
-						<div class="form-tips">
-							<span data-errortips="请选择您的居住地"
-								class="text-icon-tips js-tips hidden"></span>
+							<input class="form-input" name="liveLocation" id="liveLocation" type="text" value="<%= pi.getLiveLocation() ==null ? "" :pi.getLiveLocation() %>"  />
 						</div>
 					</div>
+					
 					<div class="form-row js-row">
 						<label class="form-label">
 							<span class="form-need">*</span>
@@ -486,7 +473,7 @@ body {
 					
 					<div class="form-row js-row">
 						<label class="form-label">
-							<span class="label-justify-text4">星座:</span>
+							<span class="label-justify-text2">星座</span>
 						</label>
 						<div class="form-control">
 							<select class="form-select" name="constellation" id="constellation">
@@ -509,7 +496,7 @@ body {
 		
 					<div class="form-row js-row">
 						<label class="form-label">
-							<span class="label-justify-text4">血型:</span>
+							<span class="label-justify-text2">血型</span>
 						</label>
 						<div class="form-control">
 							<select class="form-select" name="bloodType" id="bloodType">
@@ -525,26 +512,26 @@ body {
 				
 					<div class="form-row js-row">
 						<label class="form-label">
-							<span class="label-justify-text4">属相:</span>
+							<span class="label-justify-text2">属相</span>
 						</label>
 						<div class="form-control">
 							<select class="form-select" name="zodiac" id="zodiac">
-								<option value="0">鼠</option>
-								<option value="1">牛</option>
-								<option value="2">虎</option>
-								<option value="3">兔</option>
-								<option value="4">龙</option>
-								<option value="5">蛇</option>
-								<option value="6">马</option>
-								<option value="7">羊</option>
-								<option value="8">猴</option>
-								<option value="9">鸡</option>
-								<option value="10">狗</option>
-								<option value="11">猪</option>			
+								<option value="0">请选择</option>
+								<option value="1">鼠</option>
+								<option value="2">牛</option>
+								<option value="3">虎</option>
+								<option value="4">兔</option>
+								<option value="5">龙</option>
+								<option value="6">蛇</option>
+								<option value="7">马</option>
+								<option value="8">羊</option>
+								<option value="9">猴</option>
+								<option value="10">鸡</option>
+								<option value="11">狗</option>
+								<option value="12">猪</option>			
 							</select>
 						</div>
 					</div>
-					
 					
 					<div class="form-row js-row">
 						<label class="form-label">
@@ -567,20 +554,19 @@ body {
 					
 					<div class="form-row signup-basicInfo-birthday js-row">
 						<label class="form-label">
-							<span class="label-justify-text2">微博地址：</span>
+							<span class="label-justify-text4">微博地址</span>
 						</label>
 						<div class="form-control">
-							<input class="form-input js-nickName" name="weiboURL" id="weiboURL" type="text" value="<%= (pi.getWeiboURL()==null)?"":pi.getWeiboURL() %>"  /><span></span>
+							<input class="form-input js-nickName" name="weiboURL" id="weiboURL" type="text" value="<%= pi.getWeiboURL()==null ? "" : pi.getWeiboURL() %>"  />
 						</div>
 					</div>
 					
-					
 					<div class="form-row signup-basicInfo-birthday js-row">
 						<label class="form-label">
-							<span class="label-justify-text2">豆瓣地址：</span>
+							<span class="label-justify-text4">豆瓣地址</span>
 						</label>
 						<div class="form-control">
-							<input class="form-input" name="doubanURL" id="doubanURL" type="text" value="<%= (pi.getDoubanURL()==null)?"":pi.getDoubanURL() %>"  /><span></span>
+							<input class="form-input" name="doubanURL" id="doubanURL" type="text" value="<%= pi.getDoubanURL()==null? "" : pi.getDoubanURL() %>"/>
 						</div>
 					</div>
 
@@ -594,7 +580,6 @@ body {
 				</div>
 			</div>
 		</div>
-		
 		<script type="text/javascript" src="js/common.js"></script>
 	</form>
 </body>
