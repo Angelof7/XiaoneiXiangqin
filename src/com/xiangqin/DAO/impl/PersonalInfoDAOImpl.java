@@ -23,9 +23,16 @@ public class PersonalInfoDAOImpl implements PersonalInfoDAO{
 	}
 
 	@Override
-	public int updatetPersonalInfo(PersonalInfo pi) {
-		
-		return 0;
+	public void updatetPersonalInfo(PersonalInfo pi) {
+		Session session = HibernateUtil.openSession();
+		Transaction sw = session.beginTransaction();
+		try{
+			session.update(pi);
+			sw.commit();
+		}catch(Exception e){
+			sw.rollback();
+		}
+		HibernateUtil.close(session);
 	}
 
 	@Override

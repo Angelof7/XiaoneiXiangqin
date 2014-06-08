@@ -9,6 +9,6 @@ import com.xiangqin.ORM.PersonalInfo;
  */
 public interface PersonalInfoDAO {
 	public PersonalInfo getPersonalInfoByUserId(String userId);
-	public int updatetPersonalInfo(PersonalInfo pi);
+	public void updatetPersonalInfo(PersonalInfo pi);
 	public void savetPersonalInfo(PersonalInfo pi);
 }

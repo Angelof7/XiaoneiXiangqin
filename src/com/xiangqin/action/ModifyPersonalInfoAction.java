@@ -59,7 +59,7 @@ public class ModifyPersonalInfoAction extends ActionSupport{
 			String weiboURL = req.getParameter("weiboURL");
 			String doubanURL = req.getParameter("doubanURL");
 			
-			PersonalInfo pi = new PersonalInfo();
+			PersonalInfo pi =(PersonalInfo)ActionContext.getContext().getSession().get("personalInfo");
 			pi.setNickName(nickName);
 			pi.setMarriageStatus(marriageStatus);
 			pi.setObjectType(objectType);
@@ -88,6 +88,7 @@ public class ModifyPersonalInfoAction extends ActionSupport{
 			pi.setWeiboURL(weiboURL);
 			pi.setDoubanURL(doubanURL);
 			ActionContext.getContext().getSession().put("personalInfo", pi);
+			updatePersonalInfo(pi);
 			return "SUCCESS";
 		}
 	}
@@ -105,6 +106,11 @@ public class ModifyPersonalInfoAction extends ActionSupport{
 	private PersonalInfo getPersonalInfo(User user) {
 		PersonalInfoService piService = new PersonalInfoServiceImpl();
 		return piService.getPersonalInfoByUserId(user.getId());
+	}
+	
+	private void updatePersonalInfo(PersonalInfo pi){
+		PersonalInfoService piService = new PersonalInfoServiceImpl();
+		piService.updatePersonalInfo(pi);
 	}
 	
 }

@@ -15,9 +15,17 @@ public class PersonalInfoServiceImpl implements PersonalInfoService{
 	}
 
 	@Override
+	public void updatePersonalInfo(PersonalInfo pi) {
+		PersonalInfoDAO dao = new PersonalInfoDAOImpl();
+		dao.updatetPersonalInfo(pi);
+	}
+
+	
+	@Override
 	public void savePersonalInfo(PersonalInfo pi) {
 		PersonalInfoDAO dao = new PersonalInfoDAOImpl();
 		dao.savetPersonalInfo(pi);
 	}
 
+	
 }
