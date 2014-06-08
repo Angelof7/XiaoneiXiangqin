@@ -2,14 +2,11 @@
 <%@ page import="com.xiangqin.ORM.PersonalInfo" %>
 <%@ page import="java.util.*" %>
 <!DOCTYPE html>
+<html>
 <head>
 	<title>修改个人资料</title>
 	<meta name="keywords" content="南大,交友,相亲,征婚,约会,婚恋,免费交友,同城交友" />
 	<meta name="description" content="南大旗下婚恋交友约会平台，优质单身男女全部身份验证，可安全交友。在花田免费交友，看信发信完全免费，同城交友精准推荐。来花田交友约会最靠谱！" />
-	<meta property="og:site_name" content="南大唯一免费的大型婚恋交友社区" />
-	<meta property="og:type" content="webpage" />
-	<meta property="og:image" content="http://img2.cache.netease.com/love/image/logo/open_graph_logo.png" />
-	<meta property="og:description" content="南大旗下婚恋交友约会平台，优质单身男女全部身份验证，可安全交友。在花田免费交友，看信发信完全免费，同城交友精准推荐。来花田交友约会最靠谱！" />
 	<meta name="viewport" content="width=device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=2.0" />
 	<link rel="apple-touch-icon-precomposed" href="img/logo_ipad.png" />
 	<link rel="apple-touch-icon-precomposed" href="img/logo_ipad.png" />
@@ -284,7 +281,6 @@ body {
 				</div>
 			</div>
 			<div class="mainBox">
-				<!--<img class="signup-spread-image" src="http://img2.cache.netease.com/love/image/page/login/poster.jpg" alt="花田特色" />-->
 				<div id="regOptions" class="form-group signup-group">
 					<div class="form-row js-row">
 						<label class="form-label"><span class="form-need">*</span><span
@@ -292,7 +288,7 @@ body {
 						<div class="form-control">
 							<div class="form-input-wrapper">
 								<label class="form-input-label text-gray js-nickNameLabel" style="display: none;">限12个汉字或24个英文字母</label>
-								<input class="form-input js-nickName" name="nickname" id="nickName" type="text" onchange=changeName() onblur="checkBlur(this.id)" value="<%= pi.getNickName() %>" />
+								<input class="form-input js-nickName" name="nickname" id="nickName" type="text" onchange=changeName() onblur="checkBlur(this.id)" value="<%= pi.getNickName()==null ? "" : pi.getNickName() %>" />
 								<span></span>
 							</div>
 						</div>
@@ -333,11 +329,9 @@ body {
 									2, 29);
 						</script>
 						<div class="form-tips">
-							<span data-errortips="请选择您的生日"
-								class="text-icon-tips js-tips hidden"></span>
+							<span data-errortips="请选择您的生日" class="text-icon-tips js-tips hidden"></span>
 						</div>
 					</div>
-					<!-- } 身高 { -->
 					<div class="form-row js-row">
 						<label class="form-label"><span class="form-need">*</span><span
 							class="label-justify-text2">身高</span>：</label>
@@ -347,16 +341,14 @@ body {
 								onchange="checkBlur(this.id)"></select><span></span>
 						</div>
 						<div class="form-tips">
-							<span data-errortips="请选择您的身高"
-								class="text-icon-tips js-tips hidden"></span>
+							<span data-errortips="请选择您的身高" class="text-icon-tips js-tips hidden"></span>
 						</div>
 					</div>
 					<div class="form-row js-row">
 						<label class="form-label"><span class="form-need">*</span><span
 							class="label-justify-text2">学历</span>：</label>
 						<div class="form-control">
-							<select class="form-select js-education js-needTips"
-								name="education" id="education" onblur="checkBlur(this.id)"
+							<select class="form-select js-education js-needTips" name="education" id="education" onblur="checkBlur(this.id)"
 								onchange="checkBlur(this.id)">
 								<option value=0 selected>请选择</option>
 								<option value=1>本科</option>
@@ -407,7 +399,7 @@ body {
 						<label class="form-label">
 						<span class="label-justify-text2">户口</span>：</label>
 						<div class="form-control">
-							<input class="form-input js-nickName" name="account" id="account" type="text" onblur="checklocation(this.id)" value="<%= pi.getAccount() %>"  /><span></span>
+							<input class="form-input" name="account" id="account" type="text" value="<%= pi.getAccount() == null ? "" : pi.getAccount() %>"/>
 						</div>
 					</div>
 					
@@ -417,17 +409,13 @@ body {
 							<span class="label-justify-text4">住房情况:</span>
 						</label>
 						<div class="form-control">
-							<select class="form-select js-salary" name="housingCondition" id="housingCondition"
-								onblur="checkBlur(this.id)" onchange="checkBlur(this.id)">
+							<select class="form-select js-salary" name="housingCondition" id="housingCondition">
 								<option value="0">请选择</option>
 								<option value="1">已购房</option>
 								<option value="2">租房</option>
 								<option value="3">单位宿舍</option>
 								<option value="4">和家人同住</option>						
 							</select>
-						</div>
-						<div class="form-tips">
-							<span data-errortips="请选择您的月均收入" class="text-icon-tips js-tips hidden"></span>
 						</div>
 					</div>
 					
@@ -437,14 +425,11 @@ body {
 							<span class="label-justify-text4">购车情况:</span>
 						</label>
 						<div class="form-control">
-							<select class="form-select js-salary" name="carCondition" id="carCondition" onblur="checkBlur(this.id)" onchange="checkBlur(this.id)">
+							<select class="form-select" name="carCondition" id="carCondition">
 								<option value="0">请选择</option>
 								<option value="1">已购车</option>
 								<option value="2">未购车</option>					
 							</select>
-						</div>
-						<div class="form-tips">
-							<span data-errortips="请选择您的月均收入" class="text-icon-tips js-tips hidden"></span>
 						</div>
 					</div>
 					
@@ -454,7 +439,7 @@ body {
 							<span class="label-justify-text2">民族:</span>
 						</label>
 						<div class="form-control">
-							<input class="form-input js-nickName" name="account" id="account" type="text" onblur="checklocation(this.id)" value="<%= pi.getEthnic() %>"  /><span></span>
+							<input class="form-input" name="account" id="account" value="<%= pi.getEthnic()==null ? "" : pi.getEthnic() %>"  />
 						</div>
 					</div>
 					
@@ -464,7 +449,7 @@ body {
 							<span class="label-justify-text2">籍贯:</span>
 						</label>
 						<div class="form-control">
-							<input class="form-input js-nickName" name="account" id="account" type="text" onblur="checklocation(this.id)" value="<%= pi.getBirthLocation() %>"  /><span></span>
+							<input class="form-input" name="account" id="account" type="text" value="<%= pi.getBirthLocation()==null ? "" : pi.getBirthLocation() %>"  /><span></span>
 						</div>
 					</div>
 					
@@ -474,7 +459,7 @@ body {
 							<span class="label-justify-text4">家中排行:</span>
 						</label>
 						<div class="form-control">
-							<select class="form-select js-salary" name="homeRanking" id="homeRanking" onblur="checkBlur(this.id)" onchange="checkBlur(this.id)">
+							<select class="form-select" name="homeRanking" id="homeRanking" onblur="checkBlur(this.id)" onchange="checkBlur(this.id)">
 								<option value="0">请选择</option>
 								<option value="1">独生子女</option>
 								<option value="2">老大</option>
@@ -490,7 +475,7 @@ body {
 							<span class="label-justify-text4">有无子女:</span>
 						</label>
 						<div class="form-control">
-							<select class="form-select js-salary" name="haveChildren" id="haveChildren" onblur="checkBlur(this.id)" onchange="checkBlur(this.id)">
+							<select class="form-select" name="haveChildren" id="haveChildren">
 								<option value="0">请选择</option>
 								<option value="1">小孩归自己</option>
 								<option value="2">小孩归对方</option>			
@@ -504,7 +489,7 @@ body {
 							<span class="label-justify-text4">星座:</span>
 						</label>
 						<div class="form-control">
-							<select class="form-select js-salary" name="constellation" id="constellation" onblur="checkBlur(this.id)" onchange="checkBlur(this.id)">
+							<select class="form-select" name="constellation" id="constellation">
 								<option value="0">请选择</option>
 								<option value="1">水瓶座</option>
 								<option value="2">双鱼座</option>
@@ -527,7 +512,7 @@ body {
 							<span class="label-justify-text4">血型:</span>
 						</label>
 						<div class="form-control">
-							<select class="form-select js-salary" name="bloodType" id="bloodType" onblur="checkBlur(this.id)" onchange="checkBlur(this.id)">
+							<select class="form-select" name="bloodType" id="bloodType">
 								<option value="0">请选择</option>
 								<option value="1">A型</option>
 								<option value="2">B型</option>
@@ -543,7 +528,7 @@ body {
 							<span class="label-justify-text4">属相:</span>
 						</label>
 						<div class="form-control">
-							<select class="form-select js-salary" name="zodiac" id="zodiac" onblur="checkBlur(this.id)" onchange="checkBlur(this.id)">
+							<select class="form-select" name="zodiac" id="zodiac">
 								<option value="0">鼠</option>
 								<option value="1">牛</option>
 								<option value="2">虎</option>
@@ -566,7 +551,7 @@ body {
 							<span class="label-justify-text4">宗教信仰:</span>
 						</label>
 						<div class="form-control">
-							<select class="form-select js-salary" name="religion" id="religion" onblur="checkBlur(this.id)" onchange="checkBlur(this.id)">
+							<select class="form-select" name="religion" id="religion">
 								<option value="0">请选择</option>
 								<option value="1">无宗教信仰</option>
 								<option value="2">佛教</option>
@@ -585,7 +570,7 @@ body {
 							<span class="label-justify-text2">微博地址：</span>
 						</label>
 						<div class="form-control">
-							<input class="form-input js-nickName" name="weiboURL" id="weiboURL" type="text" onblur="checklocation(this.id)" value="<%= pi.getWeiboURL() %>"  /><span></span>
+							<input class="form-input js-nickName" name="weiboURL" id="weiboURL" type="text" value="<%= (pi.getWeiboURL()==null)?"":pi.getWeiboURL() %>"  /><span></span>
 						</div>
 					</div>
 					
@@ -595,7 +580,7 @@ body {
 							<span class="label-justify-text2">豆瓣地址：</span>
 						</label>
 						<div class="form-control">
-							<input class="form-input js-nickName" name="doubanURL" id="doubanURL" type="text" onblur="checklocation(this.id)" value="<%= pi.getDoubanURL() %>"  /><span></span>
+							<input class="form-input" name="doubanURL" id="doubanURL" type="text" value="<%= (pi.getDoubanURL()==null)?"":pi.getDoubanURL() %>"  /><span></span>
 						</div>
 					</div>
 
@@ -603,21 +588,13 @@ body {
 					<div class="form-btn n-btn-box js-row">
 						<label class="form-label">&nbsp;</label>
 						<div style="padding-left: 200px">
-							<button type="submit">提交</button>
+							<button type="submit">确认修改</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-
-
-
-		<div id="jsData">
-			<font id="data_loginEmail" class="hidden">zhouyoutyj@163.com</font>
-
-
-		</div>
+		
 		<script type="text/javascript" src="js/common.js"></script>
 	</form>
 </body>
