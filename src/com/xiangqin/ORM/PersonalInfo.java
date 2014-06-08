@@ -12,9 +12,9 @@ public class PersonalInfo {
 	private String userId;
 	//	昵称
 	private String nickName;
-	//	0 未婚；1已婚
+	//	0 请选择；1 未婚；2已婚
 	private int MarriageStatus;
-	//	0 结婚对象；1 恋人；2  普通朋友；3知己
+	//	0请选择；1 结婚对象；2 恋人；3 普通朋友；4 知己
 	private int ObjectType;
 	//	0男, 1女
 	private int gender;

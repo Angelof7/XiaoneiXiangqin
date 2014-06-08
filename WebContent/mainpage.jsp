@@ -247,15 +247,17 @@
 							</div></li>
 					</ul>
 				</div>
-				<c:set var="personalInfo.marriageStatus" value="0"></c:set>
 				<div id="form1">
-					<a href="modifyPersonalInfo.jsp">编辑资料</a>
+					<a href="modifyPersonalInfo">编辑资料</a>
 					<ul class="">
 						<li><span>基本资料</span>
 							<ul>
 								<li>昵称:${personalInfo.nickName}</li>
 								<li>婚姻状态： <c:choose>
 										<c:when test="${personalInfo.marriageStatus==0}">
+											<c:out value="请选择"></c:out>
+										</c:when>
+										<c:when test="${personalInfo.marriageStatus==1}">
 											<c:out value="未婚"></c:out>
 										</c:when>
 										<c:otherwise>

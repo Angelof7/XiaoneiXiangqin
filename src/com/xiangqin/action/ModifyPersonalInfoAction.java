@@ -1,12 +1,16 @@
 package com.xiangqin.action;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.xiangqin.ORM.PersonalInfo;
+import com.xiangqin.ORM.User;
+import com.xiangqin.service.PersonalInfoService;
+import com.xiangqin.service.impl.PersonalInfoServiceImpl;
 
 /**
  * @author TianTian
@@ -16,7 +20,14 @@ public class ModifyPersonalInfoAction extends ActionSupport{
 	
 	public String execute() {
 		HttpServletRequest req = ServletActionContext.getRequest();
-		if(req.getMethod() == "Get"){
+		if(req.getMethod().equals("GET")){
+			if(ActionContext.getContext().getSession().get("user")==null){
+				return "LOGIN";
+			}
+			if(ActionContext.getContext().getSession().get("personalInfo")==null){
+				User user = (User) ActionContext.getContext().getSession().get("user");
+				ActionContext.getContext().getSession().put("personalInfo", getPersonalInfo(user));
+			}
 			return "REDIRECT";
 		}else{
 			String nickName = req.getParameter("nickName");
@@ -91,5 +102,9 @@ public class ModifyPersonalInfoAction extends ActionSupport{
 		return out;
 	}
 	
+	private PersonalInfo getPersonalInfo(User user) {
+		PersonalInfoService piService = new PersonalInfoServiceImpl();
+		return piService.getPersonalInfoByUserId(user.getId());
+	}
 	
 }

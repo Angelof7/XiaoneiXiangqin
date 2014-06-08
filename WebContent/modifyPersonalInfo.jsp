@@ -31,11 +31,30 @@
 		}
 	</style>
 	<link rel="stylesheet" href="123.css" />
-	<script src="js/jquery-1.10.2.js"></script>
 	<script src="js/jquery.ui.core.js"></script>
 	<script src="js/jquery.ui.widget.js"></script>
 	<script src="js/jquery.ui.datepicker.js"></script>
 	<script type="text/javascript" src="js/date.js"></script>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("select[name='marriageStatus']").find("option[value='<%=pi.getMarriageStatus()%>']").attr("selected","selected");
+			$("select[name='objectType']").find("option[value='<%=pi.getObjectType()%>']").attr("selected","selected");
+			$("select[name='gender']").find("option[value='<%=pi.getGender()%>']").attr("selected","selected");
+			$("select[name='education']").find("option[value='<%=pi.getEducation()%>']").attr("selected","selected");
+			$("select[name='industry']").find("option[value='<%=pi.getIndustry()%>']").attr("selected","selected");
+			$("select[name='currentJob']").find("option[value='<%=pi.getCurrentJob()%>']").attr("selected","selected");
+			$("select[name='monthlyIncome']").find("option[value='<%=pi.getMonthlyIncome()%>']").attr("selected","selected");
+			$("select[name='housingCondition']").find("option[value='<%=pi.getHousingCondition()%>']").attr("selected","selected");
+			$("select[name='carCondition']").find("option[value='<%=pi.getCarCondition()%>']").attr("selected","selected");
+			$("select[name='homeRanking']").find("option[value='<%=pi.getHomeRanking()%>']").attr("selected","selected");
+			$("select[name='haveChildren']").find("option[value='<%=pi.getHaveChildren()%>']").attr("selected","selected");
+			$("select[name='constellation']").find("option[value='<%=pi.getConstellation()%>']").attr("selected","selected");
+			$("select[name='bloodType']").find("option[value='<%=pi.getBloodType()%>']").attr("selected","selected");
+			$("select[name='zodiac']").find("option[value='<%=pi.getZodiac()%>']").attr("selected","selected");
+			$("select[name='religion']").find("option[value='<%=pi.getReligion()%>']").attr("selected","selected");
+		});
+	</script>
 	<style>
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,input,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video
 	{
@@ -178,83 +197,6 @@ body {
 	font-size: 14px;
 }
 </style>
-
-<script type="text/javascript">
-	function loadFun() {
-		var height = window.document.getElementById("height");
-		var op0 = window.document.createElement("OPTION");
-		op0.value = 0;
-		op0.innerHTML = "请选择";
-		height.appendChild(op0);
-		for (var i = 150; i <= 210; i++) {
-			var op = window.document.createElement("OPTION");
-			op.value = i;
-			op.innerHTML = i + "厘米";
-			height.appendChild(op);
-		}
-		setup();
-		promptinfo();
-	}
-	function promptinfo() {
-		var address = document.getElementById('address');
-		var s1 = document.getElementById('s1');
-		var s2 = document.getElementById('s2');
-		address.value = s1.value + s2.value;
-	}
-	window.onload = loadFun;
-	function checkBlur(name) {
-		var $a = $("#" + name);
-		$a.siblings('span').css("padding-left", "10px");
-		if (name == "nickName") {
-			checkLength('nickName', '昵称', '2', '8');
-		} else {
-			if ($a.val() == 0 && name == "height") {
-				$a.siblings('span').text("身高不能为空").css("display",
-						"inline-block").css("color", "red");
-			} else if ($a.val() == 0 && name == "education") {
-				$a.siblings('span').text("学历不能为空").css("display",
-						"inline-block").css("color", "red");
-			} else if ($a.val() == 0 && name == "salary") {
-				$a.siblings('span').text("收入不能为空").css("display",
-						"inline-block").css("color", "red");
-			} else if (name == "s1") {
-				var $b = $("#s2");
-				if ($a.val() == "省份" || $b.val() == "地级市") {
-					$a.siblings('span').text("居住地不能为空").css("display",
-							"inline-block").css("color", "red");
-				} else {
-					$a.siblings('span').html(
-							"<em class='e_06 dib' style='color:green;'>★</em>")
-							.css("display", "inline-block");
-				}
-			} else if (name == "s2") {
-				var $b = $("#s1");
-				if ($a.val() == "地级市" || $b.val() == "省份") {
-					$a.siblings('span').text("居住地不能为空").css("display",
-							"inline-block").css("color", "red");
-				} else {
-					$a.siblings('span').html(
-							"<em class='e_06 dib' style='color:green;'>★</em>")
-							.css("display", "inline-block");
-				}
-			} else {
-				$a.siblings('span').html(
-						"<em class='e_06 dib' style='color:green;'>★</em>")
-						.css("display", "inline-block");
-			}
-		}
-	}
-</script>
-<script type="text/javascript">
-	function checklocation(name) {
-		if (name == "livelocation") {
-			checkLength('livelocation', '地址', '1', '20');
-		}
-		if (name == "age") {
-			checkLength('age', '年龄', '1', '3');
-		}
-	}
-</script>
 </head>
 <body class="pSignup" data-log="pSignup">
 	<form action="modifyPersonalInfo" method="POST">
@@ -283,16 +225,41 @@ body {
 				<div id="regOptions" class="form-group signup-group">
 					
 					<div class="form-row js-row">
-						<label class="form-label"><span
-							class="label-justify-text2">昵称</span></label>
+						<label class="form-label">
+							<span class="label-justify-text2">昵称</span>
+							</label>
 						<div class="form-control">
 							<div class="form-input-wrapper">
 								<label class="form-input-label text-gray js-nickNameLabel" style="display: none;">限12个汉字或24个英文字母</label>
-								<input class="form-input js-nickName" name="nickname" id="nickName" type="text" onchange=changeName() onblur="checkBlur(this.id)" value="<%= pi.getNickName()==null ? "" : pi.getNickName() %>" />
+								<input class="form-input js-nickName" name="nickName" id="nickName" type="text" value="<%= pi.getNickName()==null ? "" : pi.getNickName() %>" />
 							</div>
 						</div>
-						<div class="form-tips">
-							<span data-helptip="限12个汉字或24英文字母" class="text-icon-tips js-tips"></span>
+					</div>
+					
+					<div class="form-row js-row">
+						<label class="form-label">
+							<span class="label-justify-text4">婚姻状态</span>
+						</label>
+						<div class="form-control">
+							<select class="form-select" name="marriageStatus" id="marriageStatus">
+								<option value="0">请选择</option>
+								<option value="1">未婚</option>
+								<option value="2">已婚</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-row js-row">
+						<label class="form-label">
+							<span class="label-justify-text4">我在寻找</span>
+						</label>
+						<div class="form-control">
+							<select class="form-select" name="objectType" id="objectType">
+								<option value="0">结婚对象</option>
+								<option value="1">恋人</option>
+								<option value="2">普通朋友</option>
+								<option value="3">知己</option>
+							</select>
 						</div>
 					</div>
 					
@@ -307,12 +274,13 @@ body {
 							</select>
 						</div>
 					</div>
+					
 					<div class="form-row signup-basicInfo-birthday js-row">
 						<label class="form-label">
 							<span class="label-justify-text2">年龄</span>
 						</label>
 						<div class="form-control">
-							<input class="form-input js-nickName" name="age" id="age" type="text" />
+							<input class="form-input" name="age" id="age" type="text" value="<%= pi.getAge() %>" />
 						</div>
 					</div>
 					
@@ -334,27 +302,10 @@ body {
 						</div>
 					</div>
 					
-					<div class="form-row js-row">
-						<label class="form-label"><span class="form-need">*</span><span
-							class="label-justify-text2">学历</span>：</label>
-						<div class="form-control">
-							<select class="form-select js-education js-needTips" name="education" id="education" onblur="checkBlur(this.id)"
-								onchange="checkBlur(this.id)">
-								<option value=0 selected>请选择</option>
-								<option value=1>本科</option>
-								<option value=2>硕士</option>
-								<option value=3>博士</option>
-							</select><span></span>
-						</div>
-						<div class="form-tips">
-							<span data-errortips="请选择您的学历"
-								class="text-icon-tips js-tips hidden"></span>
-						</div>
-					</div>
-					
 					<div class="form-row signup-basicInfo-city js-row">
-						<label class="form-label"><span class="form-need">*</span><span
-							class="label-justify-text3">居住地</span>：</label>
+						<label class="form-label"><span
+							class="label-justify-text3">居住在</span>
+							</label>
 						<div class="form-control">
 							<input class="form-input" name="liveLocation" id="liveLocation" type="text" value="<%= pi.getLiveLocation() ==null ? "" :pi.getLiveLocation() %>"  />
 						</div>
@@ -362,11 +313,87 @@ body {
 					
 					<div class="form-row js-row">
 						<label class="form-label">
-							<span class="form-need">*</span>
-							<span class="label-justify-text4">月均收入</span>：
+							<span class="label-justify-text2">学历</span>
 						</label>
 						<div class="form-control">
-							<select class="form-select js-salary" name="salary" id="salary"
+							<select class="form-select" name="education" id="education">
+								<option value="0">大专以下</option>
+								<option value="1">大专</option>
+								<option value="2">本科</option>
+								<option value="3">硕士</option>
+								<option value="4">博士</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-row js-row">
+						<label class="form-label">
+							<span class="label-justify-text4">毕业院校</span>
+						</label>
+						<div class="form-control">
+							<input type="text" class="form-input" name="graduateFrom" id="graduateFrom" value="<%= pi.getGraduateFrom() %>" />
+						</div>
+					</div>
+					
+					<div class="form-row js-row">
+						<label class="form-label">
+							<span class="label-justify-text2">行业</span>
+						</label>
+						<div class="form-control">
+							<select class="form-select" name="industry" id="industry">
+								<option value="0">请选择</option>
+								<option value="1">计算机/互联网/通信</option>
+								<option value="2">公务员/事业单位</option>
+								<option value="3">教师</option>
+								<option value="4">医生</option>
+								<option value="5">护士</option>
+								<option value="6">乘务员</option>
+								<option value="7">生产/工艺/制造</option>
+								<option value="8">商业/服务业/个体经营</option>
+								<option value="9">融/银行/投资/保险</option>
+								<option value="10">文化/广告/传媒</option>
+								<option value="11">娱乐/艺术/表演</option>
+								<option value="12">律师/法务</option>
+								<option value="13">教育/培训/管理咨询</option>
+								<option value="14">建筑/房地产/物业</option>
+								<option value="15">消费零售/贸易/物流</option>
+								<option value="16">酒店/旅游</option>
+								<option value="17">现代农业</option>
+								<option value="18">在校学生</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-row js-row">
+						<label class="form-label">
+							<span class="label-justify-text4">工作单位</span>
+						</label>
+						<div class="form-control">
+							<input type="text" class="form-input" name="company" id="company" value="<%= pi.getCompany() %>" />
+						</div>
+					</div>
+					
+					<div class="form-row js-row">
+						<label class="form-label">
+							<span class="label-justify-text4">目前职位</span>
+						</label>
+						<div class="form-control">
+							<select class="form-select" name="currentJob" id="currentJob">
+								<option value="0">请选择</option>
+								<option value="1">普通职员</option>
+								<option value="2">中层管理者</option>
+								<option value="3">高层管理者</option>
+								<option value="4">企业主</option>								
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-row js-row">
+						<label class="form-label">
+							<span class="label-justify-text3">月收入</span>
+						</label>
+						<div class="form-control">
+							<select class="form-select js-salary" name="monthlyIncome" id="monthlyIncome"
 								onblur="checkBlur(this.id)" onchange="checkBlur(this.id)">
 								<option value=0 selected>请选择</option>
 								<option value=1>2000元以下</option>
@@ -376,15 +403,12 @@ body {
 								<option value=5>10000以上</option>
 							</select>
 						</div>
-						<div class="form-tips">
-							<span data-errortips="请选择您的月均收入" class="text-icon-tips js-tips hidden"></span>
-						</div>
 					</div>
 					
 					
 					<div class="form-row signup-basicInfo-birthday js-row">
 						<label class="form-label">
-						<span class="label-justify-text2">户口</span>：</label>
+						<span class="label-justify-text2">户口</span></label>
 						<div class="form-control">
 							<input class="form-input" name="account" id="account" type="text" value="<%= pi.getAccount() == null ? "" : pi.getAccount() %>"/>
 						</div>
@@ -426,7 +450,7 @@ body {
 							<span class="label-justify-text2">民族:</span>
 						</label>
 						<div class="form-control">
-							<input class="form-input" name="account" id="account" value="<%= pi.getEthnic()==null ? "" : pi.getEthnic() %>"  />
+							<input class="form-input" name="ethnic" id="ethnic" value="<%= pi.getEthnic()==null ? "" : pi.getEthnic() %>"  />
 						</div>
 					</div>
 					
@@ -436,7 +460,7 @@ body {
 							<span class="label-justify-text2">籍贯:</span>
 						</label>
 						<div class="form-control">
-							<input class="form-input" name="account" id="account" type="text" value="<%= pi.getBirthLocation()==null ? "" : pi.getBirthLocation() %>"  /><span></span>
+							<input class="form-input" name="birthLication" id="birthLocation" type="text" value="<%= pi.getBirthLocation()==null ? "" : pi.getBirthLocation() %>"  /><span></span>
 						</div>
 					</div>
 					
@@ -557,7 +581,7 @@ body {
 							<span class="label-justify-text4">微博地址</span>
 						</label>
 						<div class="form-control">
-							<input class="form-input js-nickName" name="weiboURL" id="weiboURL" type="text" value="<%= pi.getWeiboURL()==null ? "" : pi.getWeiboURL() %>"  />
+							<input class="form-input" name="weiboURL" id="weiboURL" type="text" value="<%= pi.getWeiboURL()==null ? "" : pi.getWeiboURL() %>"  />
 						</div>
 					</div>
 					
