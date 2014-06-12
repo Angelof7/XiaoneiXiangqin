@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.io.*,com.xiangqin.ORM.User;"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -47,7 +48,7 @@
 </script>
 
 </head>
-<body class="profile profile-male">
+<body class="profile profile-male" reload="true">
 	<jsp:include page="header.jsp" />
 
 	<div class="content">
@@ -56,8 +57,20 @@
 			data-log="basicInfoBox">
 			<div class="profile-basic-avatar">
 				<div class="profile-basic-avatar-imgBox  profile-basic-avatar-mine">
-					<a href="/settings/face"> <img
-						src="upload/avatar/${user.getUsername() }_162.jpg" alt="头像" />
+					<a href="/settings/face"> 
+					<% 
+					    User user = (User)session.getAttribute("user");
+						String path1=application.getRealPath(request.getRequestURI());  
+					    String dir=new File(path1).getParent();
+						String savePath = "./../upload/avatar/"; //保存图片路径 可以修改
+					    String _savePath =  dir+savePath;
+					    File file = new File(_savePath+user.getUsername()+"_162.jpg");
+					    if(file.exists()){
+					%>
+					<img src="upload/avatar/${user.getUsername() }_162.jpg" alt="头像" />
+					<%}else{ %>
+					<img src="upload/avatar/default_162.jpg" alt="头像" />
+					<%} %>
 					</a>
 					<div class="profile-basic-avatar-update">
 						<i></i> <a href="updateface.jsp">点击修改头像</a>
