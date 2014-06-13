@@ -62,9 +62,9 @@
 					<a href="/settings/face"> 
 					<% 
 					    User user = (User)session.getAttribute("user");
-						String path1=application.getRealPath(request.getRequestURI());  
+						String path1=application.getRealPath(request.getContextPath());  
 					    String dir=new File(path1).getParent();
-						String savePath = "./../upload/avatar/"; //保存图片路径 可以修改
+						String savePath = "/upload/avatar/"; //保存图片路径 可以修改
 					    String _savePath =  dir+savePath;
 					    File file = new File(_savePath+user.getUsername()+"_162.jpg");
 					    if(file.exists()){
