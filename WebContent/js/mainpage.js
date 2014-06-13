@@ -1,3 +1,13 @@
 $(document).ready(function(){
-	
+	  //绑定登陆按钮点击事件，移入事件，移出事件
+    $("#upload").click(function(){
+    	$.XYTipsWindow({
+    		___title:"用户注册",
+			___content:"iframe:./uploadphoto.jsp",
+			___width:"460",
+			___height:"300",
+			___showbg:true,
+			___drag:"___boxTitle"
+		});
+    });
 });

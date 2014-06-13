@@ -20,10 +20,12 @@
 <link rel="stylesheet" href="css/page.min.css" />
 <link rel="stylesheet" href="css/component.css" />
 <link rel="stylesheet" href="css/default.css" />
+<link href="css/box_style.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.easytabs.min.js"></script>
 <script type="text/javascript" src="js/jquery.hashchange.min.js"></script>
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/jquery.XYTipsWindow.2.8.js"></script>
 
 <style>
 #codeImg {
@@ -130,8 +132,8 @@
 					<ul class="profile-basic-action-list clearfix">
 						<li><a
 							class="icon-upload-profile-photo g-upload-photo-trigger"
-							hidefocus="true" href="javascript:;"> <em></em>
-								<p>上传照片</p>
+							hidefocus="true" href=":;"> <em></em>
+								<span id="upload" name="upload">上传照片</span>
 						</a></li>
 						<li><a
 							class="icon-upload-profile-letter g-upload-letter-trigger"

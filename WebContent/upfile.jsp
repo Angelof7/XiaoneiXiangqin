@@ -1,10 +1,10 @@
 <%@page import="java.io.*,sun.misc.*,java.util.*,com.xiangqin.ORM.User"%>
 <%
-    String path=application.getRealPath(request.getRequestURI());  
+    String path=application.getRealPath(request.getContextPath());  
     System.out.println(path);
     String dir=new File(path).getParent();
     System.out.println(dir);
-	String savePath = "./../upload/avatar/"; //保存图片路径 可以修改
+	String savePath = "/upload/avatar/"; //保存图片路径 可以修改
 
 	String _savePath =  dir+savePath;
     System.out.println(_savePath);
