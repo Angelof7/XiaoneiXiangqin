@@ -1,0 +1,23 @@
+
+#EditInfo{
+	margin-top:20px;
+	width:100%;
+	text-align:center;
+}
+
+#EditInfo a:hover{
+	color:blue;
+}
+
+.PersonalInfo {
+	margin-left:100px;
+	height:800px;
+	float:left;
+	backgroud-color:white;
+	width:100%;
+	clear:both;
+}
+
+.PersonalInfo span{
+	font-weight:bold;
+}
