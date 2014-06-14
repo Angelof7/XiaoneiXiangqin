@@ -32,6 +32,10 @@
 			<result name="success">/mainpage.jsp</result>
 			<result name="failure">/error.jsp</result>
 		</action>
+		
+		<action name="search" >
+			<result>/search.jsp</result>
+		</action>
 
 		<action name="password" >
 			<result>/password.jsp</result>

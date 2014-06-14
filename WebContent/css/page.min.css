@@ -2111,7 +2111,7 @@ html.pPhoto {
 
 .profile-male {
 	background: #EDEFF5
-		url('http://img2.cache.netease.com/love/image/page/profile/male_bg0929.jpg')
+		url('./../img/mainpage.jpg')
 		repeat-x left 51px;
 }
 

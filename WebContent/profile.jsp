@@ -477,13 +477,6 @@ body {
 		</div>
 
 
-
-
-		<div id="jsData">
-			<font id="data_loginEmail" class="hidden">zhouyoutyj@163.com</font>
-
-
-		</div>
 		<script type="text/javascript" src="js/common.js"></script>
 	</form>
 </body>
