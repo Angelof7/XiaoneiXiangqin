@@ -18,5 +18,6 @@
     	<mapping resource="com/xiangqin/ORM/User.hbm.xml" />
     	<mapping resource="com/xiangqin/ORM/UserInfo.hbm.xml"/>
     	<mapping resource="com/xiangqin/ORM/PersonalInfo.hbm.xml"/>
+    	<mapping resource="com/xiangqin/ORM/Friend.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
