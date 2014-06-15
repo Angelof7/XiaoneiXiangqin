@@ -20,8 +20,8 @@
 		</h1>
 		<ul class="header-navi">
 			<li id="home"><a href="#"><span>推荐</span></a></li>
-			<li id="trend"><a href="#"><span>动态</span></a></li>
-			<li><a href="#"><span>兴趣搜索</span></a></li>
+			<li id="trend"><a href="#"><span>缘友动态</span></a></li>
+			<li><a href="search"><span>寻寻觅觅</span></a></li>
 			<li><a href="#"><span>搭讪广场</span></a></li>
 			<li class="current"><a href="mainpage"><span>个人主页</span></a></li>
 		</ul>
