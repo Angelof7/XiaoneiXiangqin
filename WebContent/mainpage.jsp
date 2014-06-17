@@ -16,18 +16,19 @@
 <title>${personalInfo.nickName }的个人主页</title>
 <link rel="apple-touch-icon-precomposed" href="logo_ipad.png" />
 <link rel="shortcut icon" href="img/favicon.ico" />
+<link href="css/box_style.css" type="text/css" rel="stylesheet" />
 <link rel="stylesheet" href="css/main.min.css" />
 <link rel="stylesheet" href="css/page.min.css" />
 <link rel="stylesheet" href="css/component.css" />
 <link rel="stylesheet" href="css/default.css" />
 <link rel="stylesheet" href="css/InfoDisplay.css" />
-<link href="css/box_style.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="js/jquery.easytabs.min.js"></script>
 <script type="text/javascript" src="js/jquery.hashchange.min.js"></script>
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
 <script type="text/javascript" src="js/jquery.XYTipsWindow.2.8.js"></script>
-
+<script type="text/javascript" src="js/mainpage.js"></script>
 <style>
 #codeImg {
 	cursor: pointer;
@@ -66,11 +67,11 @@
 						String path1=application.getRealPath(request.getContextPath());  
 					    String dir=new File(path1).getParent();
 						String savePath = "/upload/avatar/"; //保存图片路径 可以修改
-					    String _savePath =  dir+savePath;
-					    File file = new File(_savePath+user.getUsername()+"_162.jpg");
+					    String _savePath =  dir+savePath+user.getId()+"/";
+					    File file = new File(_savePath+user.getId()+"_162.jpg");
 					    if(file.exists()){
 					%>
-					<img src="upload/avatar/${user.getUsername() }_162.jpg" alt="头像" />
+					<img src="upload/avatar/${user.getId() }/${user.getId() }_162.jpg" alt="头像" />
 					<%}else{ %>
 					<img src="upload/avatar/default_162.jpg" alt="头像" />
 					<%} %>
@@ -131,11 +132,11 @@
 				</div>
 				<div class="profile-basic-action">
 					<ul class="profile-basic-action-list clearfix">
-						<li><a
-							class="icon-upload-profile-photo g-upload-photo-trigger"
-							hidefocus="true" href=":;"> <em></em>
-								<span id="upload" name="upload">上传照片</span>
-						</a></li>
+						<li><a id="upload" class="icon-upload-profile-photo g-upload-photo-trigger" hidefocus="true" href="javascript:;"> <em></em>
+								<p>上传照片</p>
+						
+						</a>
+						</li>
 						<li><a
 							class="icon-upload-profile-letter g-upload-letter-trigger"
 							hidefocus="true" href="javascript:;"> <em></em>

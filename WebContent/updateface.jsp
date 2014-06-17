@@ -78,7 +78,7 @@
 					<PARAM NAME=quality VALUE=high>
 					<PARAM NAME=bgcolor VALUE=#FFFFFF>
 					<param name="flashvars" value="imgUrl=img/default.jpg&uploadUrl=upfile.jsp&uploadSrc=false" />
-					<EMBED src="swf/avatar.swf" quality=high bgcolor=#FFFFFF WIDTH="650" HEIGHT="450" wmode="transparent" flashVars="imgUrl=upload/avatar/${user.getUsername() }_162.jpg&uploadUrl=upfile.jsp&uploadSrc=false"
+					<EMBED src="swf/avatar.swf" quality=high bgcolor=#FFFFFF WIDTH="650" HEIGHT="450" wmode="transparent" flashVars="imgUrl=upload/avatar/${user.getId() }/${user.getId() }_162.jpg&uploadUrl=upfile.jsp&uploadSrc=false"
 					NAME="myMovieName" ALIGN="" TYPE="application/x-shockwave-flash" allowScriptAccess="always"
 					PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
 					</EMBED>
@@ -99,7 +99,8 @@
 						var filename20 = picUrl+"_20.jpg";
 				        
 						//document.getElementById('avatar_priview').innerHTML = "头像1 : <img src='"+filename162+"?" + time + "'/> <br/> 头像2: <img src='"+filename48+"?" + time + "'/><br/> 头像3: <img src='"+filename20+"?" + time + "'/>" ;
-						window.location.href="mainpage.jsp";
+						window.location.replace("mainpage.jsp");
+						window.location.reload();
 					break;
 				     case '-1':
 					  window.location.reload();
