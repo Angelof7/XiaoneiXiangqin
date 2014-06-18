@@ -15,6 +15,7 @@
 		<property name="age" column="Age" type="int" />
 		<property name="height" column="Height" type="int" />
 		<property name="weight" column="Weight" type="int" />
+		<property name="province" column="Province" type="string" />
 		<property name="liveLocation" column="LiveLocation" type="string" />
 		<property name="education" column="Education" type="int" />
 		<property name="graduateFrom" column="GraduateFrom" type="string" />

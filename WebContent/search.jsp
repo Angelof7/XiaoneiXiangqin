@@ -35,10 +35,10 @@
 				for (var i = 0; i < searchObj.pis.length; i++) {
 					var str = '<div class="search-user clearfix"><i class="search-user-mask"></i>'+
 					'<div class="search-user-inner"><div class="search-user-avatar">'+
-					'<a class="need-login" data-log="avatar" target="_blank" href="/#"><img src="#" /></a>'+
+					'<a class="need-login" data-log="avatar" target="_blank" href="./#"><img src="upload/avatar/default_162.jpg" /></a>'+
 					'<em class="icon-offline" title="离线"></em></div><div class="search-user-info">'+
 					'<h3 class="search-user-title">'+
-					'<a class="js-username need-login " data-log="nickname" href="/#" target="_blank" title="#">'+
+					'<a class="js-username need-login " data-log="nickname" href="./#" target="_blank" title="#">'+
 					searchObj.pis[i][0]+'</a></h3><p class="text-gray">ID：'+
 					searchObj.pis[i][1]+'</p><p class="text-gray">'+
 					searchObj.pis[i][2]+'岁&nbsp;'+

@@ -195,7 +195,19 @@ body {
 	font-size: 14px;
 }
 </style>
-
+<script language="javascript" src="js/location.js"></script>
+<script language="javascript">
+	//根据年龄下限决定年龄上限的范围
+	function testage() {
+		var ageMin = parseInt(document.getElementById("age_min").value) + 1;
+		var ageMax = document.getElementById("age_max");
+		ageMax.length = 0;
+		for (var i = ageMin; i < 40; i++) {
+			ageMax.add(new Option(i + "岁", i));
+		}
+	}
+	
+</script>
 
 
 
@@ -212,6 +224,16 @@ body {
 			op.value = i;
 			op.innerHTML = i + "厘米";
 			height.appendChild(op);
+		}
+		//找到级别最大的索引ID
+		var province = document.getElementById("province");
+		for ( var i in cityArr) {
+			province.add(new Option(i, i));
+		}
+		//初始化年龄段
+		var ages = document.getElementById("age_min");
+		for (var i = 19; i < 30; i++) {
+			ages.add(new Option(i + "岁", i));
 		}
 		setup();
 		promptinfo();
@@ -277,8 +299,7 @@ body {
 	}
 
 	function check() {
-		if (document.getElementById("nickName").value == ""
-				|| document.getElementById("livelocation").value == "") {
+		if (document.getElementById("nickName").value == "") {
 			alert('将信息填写完整哦！');
 			document.getElementById("nickName").focus();
 			return false;
@@ -298,6 +319,12 @@ body {
 				|| document.getElementById("education").value == 0
 				|| document.getElementById("salary").value == 0) {
 			alert('将信息填写完整哦！');
+			return false;
+		}
+		if (document.getElementById("province").value == 0
+				|| document.getElementById("livelocation").value == 0) {
+			alert('将所在地信息填写完整哦！');
+			document.getElementById("province").focus();
 			return false;
 		}
 		if (!document.getElementById("agree").checked) {
@@ -428,8 +455,11 @@ body {
 						<label class="form-label"><span class="form-need">*</span><span
 							class="label-justify-text3">居住地</span>：</label>
 						<div class="form-control">
-							<input class="form-input js-nickName" name="livelocation"
-								id="livelocation" type="text" onblur="checklocation(this.id)" /><span></span>
+							<select id="province" onchange="test()">
+								<option value="0">[-不限省份-]</option>
+							</select> <select id="livelocation">
+								<option value="0">[-不限城市-]</option>
+							</select> <span></span>
 						</div>
 						<div class="form-tips">
 							<span data-errortips="请选择您的居住地"

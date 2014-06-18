@@ -38,7 +38,7 @@
 						<li><a href="#"><span>会员服务中心</span></a></li>
 						
 						<li class="line"></li>
-						<li><a id="logOut" href="exit"><span>退出</span></a></li>
+						<li><a href="exit"><span>退出</span></a></li>
 					</ul>
 				</div>
 			</div>

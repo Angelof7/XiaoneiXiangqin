@@ -84,6 +84,7 @@
 	        <result name="success">/mainpage.jsp</result>
 	    </action>
 	</package>
+	
 	<package name="search" extends="json-default">
 		<action name="loadInfo" class="com.xiangqin.action.UserSearchAction" method="searchUser">
 			<result name="success" type="json"></result>

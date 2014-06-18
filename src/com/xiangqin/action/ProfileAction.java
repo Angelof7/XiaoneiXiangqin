@@ -29,6 +29,15 @@ public class ProfileAction extends ActionSupport {
 	private int age;
 	private int height;
 	private int education;
+	private String province;
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
 	private String livelocation;
 	private int salary;
 
@@ -99,6 +108,7 @@ public class ProfileAction extends ActionSupport {
 		personalinfo.setAge(age);
 		personalinfo.setHeight(height);
 		personalinfo.setEducation(education);
+		personalinfo.setProvince(province);
 		personalinfo.setLiveLocation(livelocation);
 		personalinfo.setMonthlyIncome(salary);
 		user.setFirstlogin(0);
