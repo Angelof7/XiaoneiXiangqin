@@ -540,11 +540,11 @@
 					$contentID.children().appendTo($("#"+$content));
 					$box.parent().removeAttr("style").remove();
 					$boxbg.animate({opacity:"0"},500,function(){$(this).remove();});
-					$("body").css("background","#fff");
+					//$("body").css("background","#fff");
 				}else{
 					$box.parent().removeAttr("style").remove();
 					$boxbg.animate({opacity:"0"},500,function(){$(this).remove();});
-					$("body").css("background","#fff");
+					//$("body").css("background","#fff");
 				};
 			};
 		},

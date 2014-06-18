@@ -49,6 +49,10 @@
 	function changeImg() {
 		$("#codeImg").attr("src", "checkcode.action?d=" + new Date().valueOf());
 	}
+	function loadContent(){
+		document.getElementById("photoalbum").innerHTML="我被加载进来了";
+	}
+	
 </script>
 
 </head>
@@ -148,15 +152,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="person_img" style="height: 50px; margin-top: -20px;">
-
+	<div class="contentBox" style="margin-top: 0px;background:white">
+                     个人形象照展示<br>
+         <img alt="" src="upload/avatar/${user.getId() }/${user.getId() }_162.jpg">
 	</div>
 	<div class="contentBox">
 		<div class="tab-container" id="tab-container">
 			<ul class="tabBar">
 				<li class="tab"><a href="#person">我的动态</a></li>
 				<li class="tab"><a href="#form1">个人资料</a></li>
-				<li class="tab"><a href="#form2">我的问答</a></li>
+				<li class="tab"><a href="#form2" onclick="loadContent();">个人相册</a></li>
 			</ul>
 			<div class="panel-container">
 				<div id="person">
@@ -577,8 +582,11 @@
 					</div>
 				</div>
 				<div id="form2">
-					<h1>我的问答</h1>
-					Welcome! <br> ${user.username }<br>${user.id}
+					<div id="photoalbum" name="photoalbum">
+					    <%
+					        
+					    %>
+					</div>
 				</div>
 			</div>
 		</div>
