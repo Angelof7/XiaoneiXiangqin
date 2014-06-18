@@ -80,6 +80,10 @@
 		for (var i = 19; i < 30; i++) {
 			ages.add(new Option(i + "岁", i));
 		}
+		var ages2 = document.getElementById("age_max");
+		for (var i = 20; i < 30; i++) {
+			ages2.add(new Option(i + "岁", i));
+		}
 	}
 </script>
 

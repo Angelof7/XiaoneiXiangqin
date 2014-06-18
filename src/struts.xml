@@ -84,6 +84,12 @@
 	        <result name="success">/mainpage.jsp</result>
 	    </action>
 	</package>
+	<package name="search" extends="json-default">
+		<action name="loadInfo" class="com.xiangqin.action.UserSearchAction" method="searchUser">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+	
 	<constant name="struts.multipart.saveDir" value="d:/tmp"></constant>
 	<constant name="struts.multipart.maxSize" value="4294967296"></constant>
 	<constant name="struts.multipart.parser" value="jakarta"></constant>
