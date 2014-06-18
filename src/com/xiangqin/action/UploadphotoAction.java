@@ -21,6 +21,7 @@ public class UploadphotoAction {
 	private File file; // 前台传过来的文件
 	private String fileFileName; // 文件名
     private String fileContentType; // 文件类型
+    private String photoabulm;
     public File getFile() {
 		return file;
 	}
@@ -33,16 +34,18 @@ public class UploadphotoAction {
 	public void setFileFileName(String fileFileName) {
 		this.fileFileName = fileFileName;
 	}
-
     public String upload() throws IOException{
-    	System.out.println(file.getAbsolutePath());
-    	System.out.println("fileFileName==="+fileFileName);
+    	System.out.println("fileFileName="+this.fileFileName);
         HttpServletResponse response = ServletActionContext.getResponse();
         HttpServletRequest request = ServletActionContext.getRequest();
         // 写到服务器上
+        String photoname = request.getParameter("photoabulm");
         response.setCharacterEncoding("utf-8");
         try {
-        String path = request.getContextPath();
+        String path = request.getServletContext().getRealPath("/photo");
+        User user = (User)request.getSession().getAttribute("user");
+        path +="/"+user.getId()+"/"+"我的相册"+"/";
+        new File(path).mkdirs();
         System.out.println(path);
         FileInputStream in = new FileInputStream(file);
         FileOutputStream out = new FileOutputStream(new File(path + "/" + fileFileName));
@@ -52,17 +55,24 @@ public class UploadphotoAction {
         }
         in.close();
         out.close();
+        file.delete();
         response.getWriter().write("上传成功！");
         }catch (Exception e) {
                 e.printStackTrace();
                 response.getWriter().write("上传失败!请联系管理员或者重新上传！");
-        }
-    	return "success";
+       }
+       return "success";
     }
 	public String getFileContentType() {
 		return fileContentType;
 	}
 	public void setFileContentType(String fileContentType) {
 		this.fileContentType = fileContentType;
+	}
+	public String getPhotoabulm() {
+		return photoabulm;
+	}
+	public void setPhotoabulm(String photoabulm) {
+		this.photoabulm = photoabulm;
 	}
 }
