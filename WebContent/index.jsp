@@ -7,11 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <h3>欢迎注册南大相亲网站</h3>
-    <form action="register" name="registerForm" method="post">
-    学号<input id="studentCard" name="studentCard" type="text" ><br>
- <input id="submit" name="submit" type="submit" value="提交">
+    <jsp:include page="header.jsp"></jsp:include>
+    <div id="content">
     
-    </form>
+    
+    
+    
+    </div>
+    
+    <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

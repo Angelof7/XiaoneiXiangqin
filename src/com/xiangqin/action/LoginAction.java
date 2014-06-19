@@ -8,10 +8,15 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.xiangqin.ORM.PersonalInfo;
 import com.xiangqin.ORM.User;
+import com.xiangqin.service.PersonalInfoService;
 import com.xiangqin.service.UserService;
+import com.xiangqin.service.impl.PersonalInfoServiceImpl;
 import com.xiangqin.service.impl.UserServiceImpl;
 import com.xiangqin.util.EncrypMD5;
+
+;
 
 public class LoginAction extends ActionSupport {
 
@@ -69,9 +74,15 @@ public class LoginAction extends ActionSupport {
 	public String login() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession(true);
-		if (!checkcode.equalsIgnoreCase(session.getAttribute("checkCode")
-				.toString())) {
-			msg = "验证码错误！";
+		try {
+			if (!checkcode.equalsIgnoreCase(session.getAttribute("checkCode")
+					.toString())) {
+				msg = "验证码错误！";
+				return ERROR;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("验证码空指针");
 			return ERROR;
 		}
 		UserService userservice = new UserServiceImpl();
@@ -81,12 +92,23 @@ public class LoginAction extends ActionSupport {
 			return ERROR;
 		}
 
-		if (user.getPassword().equals(new EncrypMD5().eccrypt(password))) {
+		if (user.getPassword().equals(EncrypMD5.eccrypt(password))) {
 			session.setAttribute("user", user);
-			return SUCCESS;
+			if (user.getFirstlogin() == 1) {
+				return INPUT;
+			} else {
+				session.setAttribute("personalInfo", getPersonalInfo(user));
+				return SUCCESS;
+			}
 		} else {
 			msg = "密码错误";
 			return ERROR;
 		}
+
+	}
+
+	private PersonalInfo getPersonalInfo(User user) {
+		PersonalInfoService piService = new PersonalInfoServiceImpl();
+		return piService.getPersonalInfoByUserId(user.getId());
 	}
 }

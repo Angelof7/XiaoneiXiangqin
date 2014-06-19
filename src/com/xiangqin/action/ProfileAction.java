@@ -1,87 +1,128 @@
 package com.xiangqin.action;
 
-import com.opensymphony.xwork2.ActionSupport;
-import com.xiangqin.ORM.UserInfo;
-import com.xiangqin.service.UserInfoService;
-import com.xiangqin.service.impl.UserInfoServiceImpl;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
-public class ProfileAction  extends ActionSupport{
+import org.apache.struts2.ServletActionContext;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.xiangqin.DAO.PersonalInfoDAO;
+import com.xiangqin.DAO.UserDAO;
+import com.xiangqin.DAO.impl.PersonalInfoDAOImpl;
+import com.xiangqin.DAO.impl.UserDAOImpl;
+import com.xiangqin.ORM.PersonalInfo;
+import com.xiangqin.ORM.User;
+import com.xiangqin.service.PersonalInfoService;
+import com.xiangqin.service.impl.PersonalInfoServiceImpl;
+
+public class ProfileAction extends ActionSupport {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String studentcard;
-	private String studentname;
-	private String sex;
-	private String address;
-	private String signuature;
-	
-	
-	public String getStudentcard() {
-		return studentcard;
+	/**
+	 * 
+	 */
+	private String nickname;
+	private int sex;
+	private int age;
+	private int height;
+	private int education;
+	private String province;
+	public String getProvince() {
+		return province;
 	}
 
-
-	public void setStudentcard(String studentcard) {
-		this.studentcard = studentcard;
+	public void setProvince(String province) {
+		this.province = province;
 	}
 
+	private String livelocation;
+	private int salary;
 
-	public String getStudentname() {
-		return studentname;
+	public String getNickname() {
+		return nickname;
 	}
 
-
-	public void setStudentname(String studentname) {
-		this.studentname = studentname;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
-
-	public String getSex() {
+	public int getSex() {
 		return sex;
 	}
 
-
-	public void setSex(String sex) {
+	public void setSex(int sex) {
 		this.sex = sex;
 	}
 
-
-	public String getAddress() {
-		return address;
+	public int getAge() {
+		return age;
 	}
 
-
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAge(int age) {
+		this.age = age;
 	}
 
-
-	public String getSignuature() {
-		return signuature;
+	public int getHeight() {
+		return height;
 	}
 
-
-	public void setSignuature(String signuature) {
-		this.signuature = signuature;
+	public void setHeight(int height) {
+		this.height = height;
 	}
 
-
-	public String profile(){
-		UserInfo userinfo = new UserInfo();
-		userinfo.setStudentcard(this.studentcard);
-		userinfo.setStudentname(this.studentname);
-		userinfo.setSex(this.sex);
-		userinfo.setAddress(this.address);
-		userinfo.setSignuature(this.signuature);
-		UserInfoService userinfoservice = new UserInfoServiceImpl();
-		userinfoservice.saveUserInfo(userinfo);
-		return "success";
+	public int getEducation() {
+		return education;
 	}
 
+	public void setEducation(int education) {
+		this.education = education;
+	}
 
+	public String getLivelocation() {
+		return livelocation;
+	}
 
+	public void setLivelocation(String livelocation) {
+		this.livelocation = livelocation;
+	}
 
-	
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
+	public String profile() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession(true);
+		User user = (User) session.getAttribute("user");
+		PersonalInfo personalinfo = new PersonalInfo();
+		personalinfo.setUserId(user.getId());
+		personalinfo.setNickName(nickname);
+		personalinfo.setGender(sex);
+		personalinfo.setAge(age);
+		personalinfo.setHeight(height);
+		personalinfo.setEducation(education);
+		personalinfo.setProvince(province);
+		personalinfo.setLiveLocation(livelocation);
+		personalinfo.setMonthlyIncome(salary);
+		user.setFirstlogin(0);
+		UserDAO userdao = new UserDAOImpl();
+		userdao.updateUser(user);
+		PersonalInfoDAO pi = new PersonalInfoDAOImpl();
+		pi.savetPersonalInfo(personalinfo);
+		session.setAttribute("personalInfo", getPersonalInfo(user));
+		return SUCCESS;
+	}
+
+	private PersonalInfo getPersonalInfo(User user) {
+		PersonalInfoService piService = new PersonalInfoServiceImpl();
+		return piService.getPersonalInfoByUserId(user.getId());
+	}
+
 }

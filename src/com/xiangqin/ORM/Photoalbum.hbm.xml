@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.xiangqin.ORM.PhotoAlbum" table="photoalbum">
+		<id name="user_id" column="user_id" type="string">
+			<generator class="assigned" />
+		</id>
+		<property name="photo_name" column="photo_name" type="string" />
+		<property name="create_time" column="create_time" type="string" />
+		<property name="photo_detail" column="photo_detail" type="string" />
+		<property name="photo_profile_src" column="photo_profile_src" type="string" />
+		<property name="is_visible" column="is_visible" type="int" />
+	</class>
+</hibernate-mapping>
