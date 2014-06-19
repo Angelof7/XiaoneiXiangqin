@@ -7,7 +7,7 @@ cityArr["江苏"] = new Array("南京", "苏州", "无锡", "常州", "扬州", 
 function test() {
 	// 找到相应的省份和城市
 	var provinces = document.getElementById("province");
-	var citys = document.getElementById("city");
+	var citys = document.getElementById("livelocation");
 	// 清空
 	citys.length = 0;
 	// 使用嵌套循环找到省份说对应的城市

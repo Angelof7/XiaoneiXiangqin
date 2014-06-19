@@ -82,7 +82,7 @@ public class LoginAction extends ActionSupport {
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("验证码空指针");
 			return ERROR;
 		}
 		UserService userservice = new UserServiceImpl();

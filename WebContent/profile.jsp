@@ -196,20 +196,6 @@ body {
 }
 </style>
 <script language="javascript" src="js/location.js"></script>
-<script language="javascript">
-	//根据年龄下限决定年龄上限的范围
-	function testage() {
-		var ageMin = parseInt(document.getElementById("age_min").value) + 1;
-		var ageMax = document.getElementById("age_max");
-		ageMax.length = 0;
-		for (var i = ageMin; i < 40; i++) {
-			ageMax.add(new Option(i + "岁", i));
-		}
-	}
-	
-</script>
-
-
 
 <!-- 调用自定义函数方法 -->
 <script type="text/javascript">

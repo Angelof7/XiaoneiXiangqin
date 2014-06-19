@@ -134,7 +134,7 @@ CONFIG['vendor'] = "love.pSearch";
 						<!-- 所在地 -->
 						居住地: <select id="province" onchange="test()">
 							<option value="0">[-不限省份-]</option>
-						</select> <select id="city">
+						</select> <select id="livelocation">
 							<option value="0">[-不限城市-]</option>
 						</select>
 						<!-- 年龄 -->
