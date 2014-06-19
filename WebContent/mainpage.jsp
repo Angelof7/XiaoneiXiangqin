@@ -51,6 +51,7 @@
 	}
 	function loadContent(){
 		document.getElementById("photoalbum").innerHTML="我被加载进来了";
+		$.load("photoAlbum.action",,);
 	}
 	
 </script>

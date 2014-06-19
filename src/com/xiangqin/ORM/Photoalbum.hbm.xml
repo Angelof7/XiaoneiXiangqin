@@ -3,8 +3,8 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.xiangqin.ORM.PhotoAlubum" table="photoalbum">
-		<id name="id" column="user_id" type="string">
+	<class name="com.xiangqin.ORM.PhotoAlbum" table="photoalbum">
+		<id name="user_id" column="user_id" type="string">
 			<generator class="assigned" />
 		</id>
 		<property name="photo_name" column="photo_name" type="string" />
