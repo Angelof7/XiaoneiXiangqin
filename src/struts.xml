@@ -32,12 +32,12 @@
 			<result name="success">/mainpage.jsp</result>
 			<result name="failure">/error.jsp</result>
 		</action>
-		
-		<action name="search" >
+
+		<action name="search">
 			<result>/search.jsp</result>
 		</action>
 
-		<action name="password" >
+		<action name="password">
 			<result>/password.jsp</result>
 		</action>
 
@@ -46,9 +46,36 @@
 			<result name="success">/password.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
+
 		<action name="exit" class="com.xiangqin.action.ExitAction">
 			<result type="redirect">/login.jsp</result>
+		</action>
+
+	</package>
+
+	<package name="otherpage" namespace="/user" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="isLogin"
+				class="com.xiangqin.interceptor.IsLoginInterceptor" />
+			<interceptor-stack name="myDefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="isLogin" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myDefault" />
+
+		<global-results>
+			<result name="globallogin" type="redirect">/login.jsp</result>
+		</global-results>
+
+		<action name="*" class="com.xiangqin.action.UserAction">
+			<param name="user_id">{1}</param>
+			<result name="success">/other.jsp</result>
+			<result name="mainpage" type="chain">
+				<param name="actionName">mainpage</param>
+				<param name="namespace">/</param>
+			</result>
 		</action>
 	</package>
 
@@ -61,7 +88,7 @@
 			method="login">
 			<result name="success">/mainpage.jsp</result>
 			<result name="input">/profile.jsp</result>
-			<result name="error" >/login.jsp</result>
+			<result name="error">/login.jsp</result>
 		</action>
 
 		<action name="register" class="com.xiangqin.action.RegisterAction"
@@ -74,23 +101,25 @@
 			<result name="success">/findpwd/success.jsp</result>
 			<result name="erro">/findpwd/findpwd.jsp</result>
 		</action>
-		
+
 		<action name="modifyPersonalInfo" class="com.xiangqin.action.ModifyPersonalInfoAction">
 			<result name="LOGIN">/login.jsp</result>
 			<result name="REDIRECT">/modifyPersonalInfo.jsp</result>
 			<result name="SUCCESS">/mainpage.jsp</result>
 		</action>
-	    <action name="uploadphoto" class="com.xiangqin.action.UploadphotoAction" method="upload">
-	        <result name="success">/mainpage.jsp</result>
-	    </action>
+		<action name="uploadphoto" class="com.xiangqin.action.UploadphotoAction"
+			method="upload">
+			<result name="success">/mainpage.jsp</result>
+		</action>
 	</package>
-	
+
 	<package name="search" extends="json-default">
-		<action name="loadInfo" class="com.xiangqin.action.UserSearchAction" method="searchUser">
+		<action name="loadInfo" class="com.xiangqin.action.UserSearchAction"
+			method="searchUser">
 			<result name="success" type="json"></result>
 		</action>
 	</package>
-	
+
 	<constant name="struts.multipart.saveDir" value="d:/tmp"></constant>
 	<constant name="struts.multipart.maxSize" value="4294967296"></constant>
 	<constant name="struts.multipart.parser" value="jakarta"></constant>

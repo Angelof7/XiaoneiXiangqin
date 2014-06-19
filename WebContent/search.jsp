@@ -35,10 +35,12 @@
 				for (var i = 0; i < searchObj.pis.length; i++) {
 					var str = '<div class="search-user clearfix"><i class="search-user-mask"></i>'+
 					'<div class="search-user-inner"><div class="search-user-avatar">'+
-					'<a class="need-login" data-log="avatar" target="_blank" href="./#"><img src="upload/avatar/default_162.jpg" /></a>'+
+					'<a class="need-login1" data-log="avatar" target="_blank" href="./user/'+searchObj.pis[i][1]+
+					'"><img src="upload/avatar/default_162.jpg" /></a>'+
 					'<em class="icon-offline" title="离线"></em></div><div class="search-user-info">'+
 					'<h3 class="search-user-title">'+
-					'<a class="js-username need-login " data-log="nickname" href="./#" target="_blank" title="#">'+
+					'<a class="js-username need-login1 " data-log="nickname" href="./user/'+searchObj.pis[i][1]+
+					'" target="_blank" title="#">'+
 					searchObj.pis[i][0]+'</a></h3><p class="text-gray">ID：'+
 					searchObj.pis[i][1]+'</p><p class="text-gray">'+
 					searchObj.pis[i][2]+'岁&nbsp;'+
@@ -84,6 +86,12 @@
 		for (var i = 20; i < 30; i++) {
 			ages2.add(new Option(i + "岁", i));
 		}
+		
+		for (var i = 1; i < 6; i++) {
+			if (i != 3)
+				document.getElementById("nav_" + i).setAttribute("class", "");
+		}
+		document.getElementById("nav_" + 3).setAttribute("class", "current");
 	}
 </script>
 
@@ -170,9 +178,7 @@ CONFIG['vendor'] = "love.pSearch";
 	<div id="scrollBar" class="scrollBar">
 		<a class="scrollBar-toTop js-top" hidefocus="true" href="javascript:;">
 			<em class="icon-toTop" title="返回顶部"></em>
-		</a> <a class="scrollBar-feedback  js-feedback " hidefocus="true"
-			href="javascript:;"> <span class="text-feedback" title="意见反馈">意见反馈</span>
-		</a>
+		</a> 
 	</div>
 
 	<script type="text/javascript"

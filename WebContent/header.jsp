@@ -9,15 +9,6 @@
 <link rel="shortcut icon" href="img/favicon.ico" />
 <link rel="stylesheet" href="css/main.min.css" />
 <link rel="stylesheet" href="css/page.min.css" />
-<script>
-	function change(id) {
-		for (var i = 1; i < 6; i++) {
-			if (i != id)
-				document.getElementById("nav_" + i).setAttribute("class", "");
-		}
-		document.getElementById("nav_" + id).setAttribute("class", "current");
-	}
-</script>
 
 </head>
 <body>
@@ -27,12 +18,11 @@
 			<a href="#">南哪儿遇见你</a>
 		</h1>
 		<ul class="header-navi">
-			<li id="nav_1"><a href="#" onclick="change(1)"><span>推荐</span></a></li>
-			<li id="nav_2"><a href="#" onclick="change(2)"><span>缘友动态</span></a></li>
-			<li id="nav_3"><a href="search" onclick="change(3)"><span>寻寻觅觅</span></a></li>
-			<li id="nav_4"><a href="#" onclick="change(4)"><span>搭讪广场</span></a></li>
-			<li id="nav_5" class="current"><a href="mainpage"
-				onclick="change(5)"><span>个人主页</span></a></li>
+			<li id="nav_1"><a href="#"><span>推荐</span></a></li>
+			<li id="nav_2"><a href="#"><span>缘友动态</span></a></li>
+			<li id="nav_3"><a href="search"><span>寻寻觅觅</span></a></li>
+			<li id="nav_4"><a href="#"><span>搭讪广场</span></a></li>
+			<li id="nav_5" class="current"><a href="mainpage"><span>个人主页</span></a></li>
 		</ul>
 
 		<div class="header-info js-header-info">
