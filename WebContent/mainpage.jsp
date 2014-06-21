@@ -95,6 +95,7 @@
 					<span id="profileVerifyName"
 						class="profile-basic-name js-nickname ">${personalInfo.nickName}</span>
 					<span class="profile-basic-id">ID：${user.getId() }</span>
+					<a href="addFriend?targetUsreId=...">加好友</a>
 				</div>
 				<div class="profile-basic-info">
 					<div class="profile-basic-info-left">
