@@ -129,7 +129,7 @@ function change(){
 					</a> <span class="btn-fav-box n-btn-fav"> <span
 						class="btn-fav-box-inner js-like"> <a
 							class="btn-fav like-trigger" href="javascript:;"> <span
-								class="btn-fav-txt"><em class="icon-like-s"></em>喜欢</span>
+								class="btn-fav-txt"><em class="icon-like-s"></em>关注</span>
 						</a> <a class="btn-fav-disabled" href="javascript:;"> <span
 								class="btn-fav-disabled-faved">已喜欢</span> <span
 								class="btn-fav-disabled-mutualFaved">互相喜欢</span> <span
@@ -138,11 +138,9 @@ function change(){
 					</span>
 					</span> <a class="btn-sayhi sayhi-trigger n-btn-sayhi" href="javascript:;">
 						<span class="btn-sayhi-txt js-text"><em
-							class="icon-sayhi-s"></em>打招呼</span>
-					</a> <a class="btn-sendGift gift-trigger n-btn-sendGift"
-						href="javascript:;"> <em class="icon-gift"></em>送礼物
-					</a> <a class="btn-block reportBlock-trigger n-btn-block"
-						data-report-type="1" href="javascript:;">拉黑/举报</a>
+							class="icon-sayhi-s"></em>搭讪</span>
+					</a>  <a class="btn-block reportBlock-trigger n-btn-block"
+						data-report-type="1" href="javascript:;">举报</a>
 				</div>
 			</div>
 		</div>
