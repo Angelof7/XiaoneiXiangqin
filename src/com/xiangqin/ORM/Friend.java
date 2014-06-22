@@ -3,8 +3,8 @@ package com.xiangqin.ORM;
 public class Friend {
 	
 	private int id;
-	private int userId;
-	private int friendId;
+	private String userId;
+	private String friendId;
 	
 	public int getId() {
 		return id;
@@ -12,16 +12,16 @@ public class Friend {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public int getFriendId() {
+	public String getFriendId() {
 		return friendId;
 	}
-	public void setFriendId(int friendId) {
+	public void setFriendId(String friendId) {
 		this.friendId = friendId;
 	}
 	

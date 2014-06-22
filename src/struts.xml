@@ -111,6 +111,17 @@
 			method="upload">
 			<result name="success">/mainpage.jsp</result>
 		</action>
+
+		<action name="addFriend" class="com.xiangqin.action.FriendAction"
+			method="addFriend">
+			<result name="SUCCESS">/mainpage.jsp</result>
+		</action>
+
+		<action name="getFriend" class="com.xiangqin.action.FriendAction"
+			method="getFriend">
+			<result name="SUCCESS">/mainpage.jsp</result>
+		</action>
+
 	</package>
 
 	<package name="search" extends="json-default">
