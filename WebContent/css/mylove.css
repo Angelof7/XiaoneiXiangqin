@@ -1,0 +1,80 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#mylove {
+	margin: 0 auto;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+* html .clearfix {
+	height: 10%;
+}
+
+.clearfix {
+	display: block;
+}
+
+body {
+	background: white;
+	font: 20px 'Microsoft Yahei', '宋体';
+	color: #999;
+}
+
+#page,#footer_inner {
+	margin: 0 auto;
+	width: 1300px;
+}
+
+h1#logo {
+	overflow: hidden;
+	height: 93px;
+	padding: 25px 0;
+}
+
+h1#logo a {
+	display: block;
+	height: 93px;
+}
+
+#container {
+	margin: 0 auto;
+	padding: 50px 0 0;
+}
+
+#container h2 {
+	font-weight: normal;
+	line-height: 28px;
+}
+
+#container p {
+	padding: 10px 0;
+}
+
+.credit {
+	text-align: center;
+	padding: 20px 0 100px;
+	font-size: 10px;
+}
+
+a,a:visited {
+	text-decoration: none;
+	outline: none;
+	color: #97cae6;
+}
+
+a:hover {
+	text-decoration: underline;
+}

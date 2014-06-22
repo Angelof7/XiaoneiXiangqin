@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="css/component.css" />
 <link rel="stylesheet" href="css/default.css" />
 <link rel="stylesheet" href="css/InfoDisplay.css" />
+<link rel="stylesheet" type="text/css" href="css/mylove.css" />
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="js/jquery.easytabs.min.js"></script>
@@ -66,20 +67,22 @@
 			data-log="basicInfoBox">
 			<div class="profile-basic-avatar">
 				<div class="profile-basic-avatar-imgBox  profile-basic-avatar-mine">
-					<a href="/settings/face"> 
-					<% 
-					    User user = (User)session.getAttribute("user");
-						String path1=application.getRealPath(request.getContextPath());  
-					    String dir=new File(path1).getParent();
-						String savePath = "/upload/avatar/"; //保存图片路径 可以修改
-					    String _savePath =  dir+savePath+user.getId()+"/";
-					    File file = new File(_savePath+user.getId()+"_162.jpg");
-					    if(file.exists()){
-					%>
-					<img src="upload/avatar/${user.getId() }/${user.getId() }_162.jpg" alt="头像" />
-					<%}else{ %>
-					<img src="upload/avatar/default_162.jpg" alt="头像" />
-					<%} %>
+					<a href="/settings/face"> <%
+ 	User user = (User) session.getAttribute("user");
+ 	String path1 = application.getRealPath(request.getContextPath());
+ 	String dir = new File(path1).getParent();
+ 	String savePath = "/upload/avatar/"; //保存图片路径 可以修改
+ 	String _savePath = dir + savePath + user.getId() + "/";
+ 	File file = new File(_savePath + user.getId() + "_162.jpg");
+ 	if (file.exists()) {
+ %> <img
+						src="upload/avatar/${user.getId() }/${user.getId() }_162.jpg"
+						alt="头像" /> <%
+ 	} else {
+ %> <img src="upload/avatar/default_162.jpg"
+						alt="头像" /> <%
+ 	}
+ %>
 					</a>
 					<div class="profile-basic-avatar-update">
 						<i></i> <a href="updateface.jsp">点击修改头像</a>
@@ -137,11 +140,12 @@
 				</div>
 				<div class="profile-basic-action">
 					<ul class="profile-basic-action-list clearfix">
-						<li><a id="upload" class="icon-upload-profile-photo g-upload-photo-trigger" hidefocus="true" href="javascript:;"> <em></em>
+						<li><a id="upload"
+							class="icon-upload-profile-photo g-upload-photo-trigger"
+							hidefocus="true" href="javascript:;"> <em></em>
 								<p>上传照片</p>
-						
-						</a>
-						</li>
+
+						</a></li>
 						<li><a
 							class="icon-upload-profile-letter g-upload-letter-trigger"
 							hidefocus="true" href="javascript:;"> <em></em>
@@ -153,15 +157,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="contentBox" style="margin-top: 0px;background:white">
-                     个人形象照展示<br>
-         <img alt="" src="upload/avatar/${user.getId() }/${user.getId() }_162.jpg">
+	<div class="contentBox" style="margin-top: 0px; background: white">
+		个人形象照展示<br> <img alt=""
+			src="upload/avatar/${user.getId() }/${user.getId() }_162.jpg">
 	</div>
 	<div class="contentBox">
 		<div class="tab-container" id="tab-container">
 			<ul class="tabBar">
 				<li class="tab"><a href="#person">我的动态</a></li>
 				<li class="tab"><a href="#form1">个人资料</a></li>
+				<li class="tab"><a href="#mylove">我喜欢</a></li>
 				<li class="tab"><a href="#form2" onclick="loadContent();">个人相册</a></li>
 			</ul>
 			<div class="panel-container">
@@ -274,8 +279,7 @@
 					<div class="PersonalInfo">
 						<ul>
 							<li><span>昵称：</span>${personalInfo.nickName}</li>
-							<li><span>婚姻状态：</span> 
-								<c:choose>
+							<li><span>婚姻状态：</span> <c:choose>
 									<c:when test="${personalInfo.marriageStatus==0}">
 										<c:out value="请选择"></c:out>
 									</c:when>
@@ -285,10 +289,9 @@
 									<c:otherwise>
 										<c:out value="已婚"></c:out>
 									</c:otherwise>
-								</c:choose>
-							</li>
-							<li><span>我在寻找：</span>
-								<c:if test="${personalInfo.objectType == 0}">
+								</c:choose></li>
+							<li><span>我在寻找：</span> <c:if
+									test="${personalInfo.objectType == 0}">
 									<c:out value="结婚对象"></c:out>
 								</c:if> <c:if test="${personalInfo.objectType == 1}">
 									<c:out value="恋人"></c:out>
@@ -296,23 +299,21 @@
 									<c:out value="普通朋友"></c:out>
 								</c:if> <c:if test="${personalInfo.objectType == 3}">
 									<c:out value="知己"></c:out>
-								</c:if>
-							</li>
-							<li><span>性别：</span>
-								<c:choose>
+								</c:if></li>
+							<li><span>性别：</span> <c:choose>
 									<c:when test="${personalInfo.gender == 0}">
 										<c:out value="男" />
 									</c:when>
 									<c:otherwise>
 										<c:out value="女"></c:out>
 									</c:otherwise>
-								</c:choose>
-							</li>
+								</c:choose></li>
 							<li><span>年龄：</span>${personalInfo.age}岁</li>
 							<li><span>身高：</span>${personalInfo.height}cm</li>
 							<li><span>体重：</span>${personalInfo.weight}kg</li>
 							<li><span>居住在：</span>${personalInfo.liveLocation}</li>
-							<li><span>学历：</span> <c:if test="${personalInfo.education == 0}">
+							<li><span>学历：</span> <c:if
+									test="${personalInfo.education == 0}">
 									<c:out value="大专以下"></c:out>
 								</c:if> <c:if test="${personalInfo.education == 1}">
 									<c:out value="大专"></c:out>
@@ -322,11 +323,9 @@
 									<c:out value="硕士"></c:out>
 								</c:if> <c:if test="${personalInfo.education == 4}">
 									<c:out value="博士"></c:out>
-								</c:if>
-							</li>
+								</c:if></li>
 							<li><span>毕业院校：</span>${personalInfo.graduateFrom}</li>
-							<li><span>行业：</span> 
-								<c:choose>
+							<li><span>行业：</span> <c:choose>
 									<c:when test="${personalInfo.industry == 0}">
 										<c:out value="请选择"></c:out>
 									</c:when>
@@ -384,11 +383,9 @@
 									<c:otherwise>
 										<c:out value="在校学生"></c:out>
 									</c:otherwise>
-								</c:choose>
-							</li>
+								</c:choose></li>
 							<li><span>工作单位：</span>${personalInfo.company}</li>
-							<li><span>目前职位：</span> 
-								<c:choose>
+							<li><span>目前职位：</span> <c:choose>
 									<c:when test="${personalInfo.currentJob==0}">
 										<c:out value="请选择"></c:out>
 									</c:when>
@@ -404,10 +401,9 @@
 									<c:otherwise>
 										<c:out value="企业主"></c:out>
 									</c:otherwise>
-								</c:choose>
-							</li>
-							<li><span>月收入：</span>
-								 <c:if test="${personalInfo.monthlyIncome == 0}">
+								</c:choose></li>
+							<li><span>月收入：</span> <c:if
+									test="${personalInfo.monthlyIncome == 0}">
 									<c:out value="请选择"></c:out>
 								</c:if> <c:if test="${personalInfo.monthlyIncome == 1}">
 									<c:out value="2000-4000"></c:out>
@@ -423,11 +419,10 @@
 									<c:out value="15000-20000"></c:out>
 								</c:if> <c:if test="${personalInfo.monthlyIncome == 7}">
 									<c:out value="20000以上"></c:out>
-								</c:if>
-							</li>
+								</c:if></li>
 							<li><span>户口：</span>${personalInfo.account}</li>
-							<li><span>住房情况：</span> 
-								<c:if test="${personalInfo.housingCondition == 0}">
+							<li><span>住房情况：</span> <c:if
+									test="${personalInfo.housingCondition == 0}">
 									<c:out value="请选择"></c:out>
 								</c:if> <c:if test="${personalInfo.housingCondition == 1}">
 									<c:out value="已购房"></c:out>
@@ -437,21 +432,19 @@
 									<c:out value="单位宿舍"></c:out>
 								</c:if> <c:if test="${personalInfo.housingCondition == 4}">
 									<c:out value="和家人同住"></c:out>
-								</c:if>
-							</li>
-							<li><span>购车情况：</span>
-								<c:if test="${personalInfo.carCondition == 0}">
+								</c:if></li>
+							<li><span>购车情况：</span> <c:if
+									test="${personalInfo.carCondition == 0}">
 									<c:out value="请选择"></c:out>
 								</c:if> <c:if test="${personalInfo.carCondition == 1}">
 									<c:out value="已购车"></c:out>
 								</c:if> <c:if test="${personalInfo.carCondition == 2}">
 									<c:out value="未购车"></c:out>
-								</c:if>
-							</li>
+								</c:if></li>
 							<li><span>民族：</span>${personalInfo.ethnic}</li>
 							<li><span>籍贯：</span>${personalInfo.birthLocation}</li>
-							<li><span>家中排行：</span> 
-								<c:if test="${personalInfo.homeRanking == 0}">
+							<li><span>家中排行：</span> <c:if
+									test="${personalInfo.homeRanking == 0}">
 									<c:out value="独生子女"></c:out>
 								</c:if> <c:if test="${personalInfo.homeRanking == 1}">
 									<c:out value="老大"></c:out>
@@ -459,19 +452,17 @@
 									<c:out value="老二"></c:out>
 								</c:if> <c:if test="${personalInfo.homeRanking == 3}">
 									<c:out value="老三及以后"></c:out>
-								</c:if>
-							</li>
-							<li><span>有无子女： </span>
-								<c:if test="${personalInfo.haveChildren == 0}">
+								</c:if></li>
+							<li><span>有无子女： </span> <c:if
+									test="${personalInfo.haveChildren == 0}">
 									<c:out value="请选择"></c:out>
 								</c:if> <c:if test="${personalInfo.haveChildren == 1}">
 									<c:out value="小孩归自己"></c:out>
 								</c:if> <c:if test="${personalInfo.haveChildren == 2}">
 									<c:out value="小孩归对方"></c:out>
-								</c:if>
-							</li>
-							<li><span>星座： </span>
-								<c:if test="${personalInfo.constellation == 0}">
+								</c:if></li>
+							<li><span>星座： </span> <c:if
+									test="${personalInfo.constellation == 0}">
 									<c:out value="请选择"></c:out>
 								</c:if> <c:if test="${personalInfo.constellation == 1}">
 									<c:out value="水瓶座"></c:out>
@@ -497,10 +488,9 @@
 									<c:out value="射手座"></c:out>
 								</c:if> <c:if test="${personalInfo.constellation == 12}">
 									<c:out value="摩羯座"></c:out>
-								</c:if>
-							</li>
-							<li><span>血型：</span>
-								<c:if test="${personalInfo.bloodType == 0}">
+								</c:if></li>
+							<li><span>血型：</span> <c:if
+									test="${personalInfo.bloodType == 0}">
 									<c:out value="请选择"></c:out>
 								</c:if> <c:if test="${personalInfo.bloodType == 1}">
 									<c:out value="A型"></c:out>
@@ -510,51 +500,37 @@
 									<c:out value="AB型"></c:out>
 								</c:if> <c:if test="${personalInfo.bloodType == 4}">
 									<c:out value="O型"></c:out>
-								</c:if>
-							</li>
-							<li><span>属相： </span>
-								<c:if test="${personalInfo.zodiac == 0}">
+								</c:if></li>
+							<li><span>属相： </span> <c:if
+									test="${personalInfo.zodiac == 0}">
 									<c:out value="请选择"></c:out>
-								</c:if> 
-								<c:if test="${personalInfo.zodiac == 1}">
+								</c:if> <c:if test="${personalInfo.zodiac == 1}">
 									<c:out value="鼠"></c:out>
-								</c:if> 
-								<c:if test="${personalInfo.zodiac == 2}">
+								</c:if> <c:if test="${personalInfo.zodiac == 2}">
 									<c:out value="牛"></c:out>
-								</c:if> 
-								<c:if test="${personalInfo.zodiac == 3}">
+								</c:if> <c:if test="${personalInfo.zodiac == 3}">
 									<c:out value="虎"></c:out>
-								</c:if> 
-								<c:if test="${personalInfo.zodiac == 4}">
+								</c:if> <c:if test="${personalInfo.zodiac == 4}">
 									<c:out value="兔"></c:out>
-								</c:if> 
-								<c:if test="${personalInfo.zodiac == 5}">
+								</c:if> <c:if test="${personalInfo.zodiac == 5}">
 									<c:out value="龙"></c:out>
-								</c:if> 
-								<c:if test="${personalInfo.zodiac == 6}">
+								</c:if> <c:if test="${personalInfo.zodiac == 6}">
 									<c:out value="蛇"></c:out>
-								</c:if> 
-								<c:if test="${personalInfo.zodiac == 7}">
+								</c:if> <c:if test="${personalInfo.zodiac == 7}">
 									<c:out value="马"></c:out>
-								</c:if> 
-								<c:if test="${personalInfo.zodiac == 8}">
+								</c:if> <c:if test="${personalInfo.zodiac == 8}">
 									<c:out value="羊"></c:out>
-								</c:if> 
-								<c:if test="${personalInfo.zodiac == 9}">
+								</c:if> <c:if test="${personalInfo.zodiac == 9}">
 									<c:out value="猴"></c:out>
-								</c:if> 
-								<c:if test="${personalInfo.zodiac == 10}">
+								</c:if> <c:if test="${personalInfo.zodiac == 10}">
 									<c:out value="鸡"></c:out>
-								</c:if> 
-								<c:if test="${personalInfo.zodiac == 11}">
+								</c:if> <c:if test="${personalInfo.zodiac == 11}">
 									<c:out value="狗"></c:out>
-								</c:if> 
-								<c:if test="${personalInfo.zodiac == 12}">
+								</c:if> <c:if test="${personalInfo.zodiac == 12}">
 									<c:out value="猪"></c:out>
-								</c:if>
-							</li>
-							<li><span>宗教信仰：</span> 
-								<c:if test="${personalInfo.religion == 0}">
+								</c:if></li>
+							<li><span>宗教信仰：</span> <c:if
+									test="${personalInfo.religion == 0}">
 									<c:out value="请选择"></c:out>
 								</c:if> <c:if test="${personalInfo.religion == 1}">
 									<c:out value="无宗教信仰"></c:out>
@@ -572,8 +548,7 @@
 									<c:out value="伊斯兰教"></c:out>
 								</c:if> <c:if test="${personalInfo.religion == 8}">
 									<c:out value="其他信仰"></c:out>
-								</c:if>
-							</li>
+								</c:if></li>
 							<li><span>微博地址：</span>${personalInfo.weiboURL}</li>
 							<li><span>豆瓣地址：</span>${personalInfo.doubanURL}</li>
 						</ul>
@@ -582,11 +557,33 @@
 						</div>
 					</div>
 				</div>
+				<div id="mylove">
+					<div id="page">
+						<div id="container" class="content clearfix">
+						<!---->
+							<canvas width="300" height="300" id="myCanvas">
+				  			<p>Anything in here will be replaced on browsers that support the canvas element</p>
+								  <ul>
+									   <li><a >温柔</a></li>
+									   <li><a >体贴</a></li>
+									   <li><a >美丽</a></li>
+									   <li><a >美腿</a></li>
+									   <li><a >文科女</a></li>
+									   <li><a >萌妹纸</a></li>
+									   <li><a >白</a></li>
+									   <li><a >处女座</a></li>
+									   <li><a >卡哇伊</a></li>
+									   
+								  </ul>
+				 			</canvas>
+						</div>
+					</div>
+				</div>
 				<div id="form2">
 					<div id="photoalbum" name="photoalbum">
-					    <%
-					        
-					    %>
+						<%
+							
+						%>
 					</div>
 				</div>
 			</div>
@@ -595,24 +592,29 @@
 			<h5>
 				<label>我在右边</label>
 			</h5>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br> <br> <br>
 		</div>
 		<div style="clear: both;"></div>
 	</div>
 	<script type="text/javascript" language="javascript">
 		$("#tab-container").easytabs();
 	</script>
+	<script src="js/jquery.tagcanvas.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		if (!$('#myCanvas').tagcanvas({
+			textColour : 'black',
+			outlineThickness : 1,
+			maxSpeed : 0.03,
+			depth : 0.75
+		})) {
+			// TagCanvas failed to load
+			$('#myCanvasContainer').hide();
+		}
+		// your other jQuery stuff here...
+	});
+</script>
 
 	<jsp:include page="footer.jsp" />
 </body>
