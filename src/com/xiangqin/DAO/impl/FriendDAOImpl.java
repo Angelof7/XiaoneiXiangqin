@@ -14,11 +14,11 @@ public class FriendDAOImpl implements FriendDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Friend> getFriend(int userId) {
+	public List<Friend> getFriend(String userId) {
 		String hql = "from Friend where userId=:userId";
 		Session session = HibernateUtil.openSession();
 		Query query = session.createQuery(hql);
-		query.setInteger("userId", userId);
+		query.setString("userId", userId);
 		List<Friend> friendList = query.list();
 		HibernateUtil.close(session);
 		return friendList;

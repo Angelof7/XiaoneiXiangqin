@@ -7,7 +7,7 @@
 		<id name="id" column="Id" type="int">
 			<generator class="native" />
 		</id>
-		<property name="userId" column="UserId" type="int" />
-		<property name="friendId" column="FriendId" type="int" />
+		<property name="userId" column="UserId" type="string" />
+		<property name="friendId" column="FriendId" type="string" />
 	</class>
 </hibernate-mapping>

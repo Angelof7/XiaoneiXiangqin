@@ -3,22 +3,31 @@
           "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
           "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-    	<property name="connection.url"><![CDATA[jdbc:mysql://npeasy.com:3306/xiaoneixiangqin?useUnicode=true&characterEncoding=utf8]]></property>
-    	<property name="connection.username">agile</property>
-    	<property name="connection.password">agile123</property>
-    	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    	<!-- 设置dialect属性可以使用该类型数据库特性 -->
-    	<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
-    	
-    	<!-- 在命令行输出SQL语句 -->
-    	<property name="show_sql">true</property>
-    	
-    	<!-- Model属性与数据库字段的映射文件 -->
-    	<mapping resource="com/xiangqin/ORM/User.hbm.xml" />
-    	<mapping resource="com/xiangqin/ORM/UserInfo.hbm.xml"/>
-    	<mapping resource="com/xiangqin/ORM/PersonalInfo.hbm.xml"/>
-    	<mapping resource="com/xiangqin/ORM/Friend.hbm.xml"/>
-    	<mapping resource="com/xiangqin/ORM/Photoalbum.hbm.xml"/>
-    </session-factory>
+	<session-factory>
+		<property name="connection.url"><![CDATA[jdbc:mysql://npeasy.com:3306/xiaoneixiangqin?useUnicode=true&characterEncoding=utf8]]></property>
+		<property name="connection.username">agile</property>
+		<property name="connection.password">agile123</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- 设置dialect属性可以使用该类型数据库特性 -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<!-- c3p0连接池 -->
+		<property name="hibernate.c3p0.max_size">200</property>
+		<property name="hibernate.c3p0.min_size">10</property>
+		<property name="hibernate.c3p0.timeout">1000</property>
+		<property name="hibernate.c3p0.max_statements">400</property>
+		<property name="hibernate.c3p0.validate">true</property>
+		<property name="hibernate.c3p0.acquire_increment">5</property>
+		<property name="hibernate.c3p0.idle_test_period">2000</property>
+
+		<!-- 在命令行输出SQL语句 -->
+		<property name="show_sql">true</property>
+
+		<!-- Model属性与数据库字段的映射文件 -->
+		<mapping resource="com/xiangqin/ORM/User.hbm.xml" />
+		<mapping resource="com/xiangqin/ORM/UserInfo.hbm.xml" />
+		<mapping resource="com/xiangqin/ORM/PersonalInfo.hbm.xml" />
+		<mapping resource="com/xiangqin/ORM/Friend.hbm.xml" />
+		<mapping resource="com/xiangqin/ORM/Photoalbum.hbm.xml" />
+	</session-factory>
 </hibernate-configuration>

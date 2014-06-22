@@ -6,7 +6,7 @@ import com.xiangqin.ORM.Friend;
 
 public interface FriendDAO {
 	
-	List<Friend> getFriend(int userId);
+	List<Friend> getFriend(String userId);
 	
 	void insertFriend(Friend friend);
 }
