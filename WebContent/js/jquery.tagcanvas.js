@@ -484,7 +484,7 @@ function TagCanvas() {
 	weightMode: 'size',
 	weightFrom: null,
 	weightSize: 1,
-	weightGradient: {0:'#f00', 0.33:'#ff0', 0.66:'#0f0', 1:'#00f'},
+	weightGradient: {0:'#f00', 1:'#00f'},
 	txtOpt: true,
 	txtScale: 2,
 	frontSelect: false,
