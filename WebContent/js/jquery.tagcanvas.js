@@ -15,8 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * jQuery.tagcanvas 1.11.1
- * For more information, please contact <graham@goat1000.com>
+ * jQuery.tagcanvas 1.11.1 For more information, please contact
+ * <graham@goat1000.com>
  */
 (function($) {
 var i, j, abs = Math.abs, sin = Math.sin, cos = Math.cos, hexlookup3 = {}, hexlookup2 = {}, hexlookup1 = {
